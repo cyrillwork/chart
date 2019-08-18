@@ -1,0 +1,29 @@
+<html>
+<body>
+    <div>
+        <form method="post" action="add">
+            <input type="text" name="name"  placeholder="Имя">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="age"   placeholder="Возраст">
+            <button type="submit"> Добавить </button>
+        </form>
+    </div>
+
+    <div>
+        <form method="post" action="delete">
+            <input type="text" name="del_name"  placeholder="Имя">
+            <button type="submit"> Удалить </button>
+        </form>
+    </div>
+
+    <div> Список пользователей </div>
+    {{#users}}
+        <div>
+            <b> {{name}} </b>
+            <i> {{email}} </i>
+            <i> {{age}} </i>
+        </div>
+    {{/users}}
+
+</body>
+</html>
