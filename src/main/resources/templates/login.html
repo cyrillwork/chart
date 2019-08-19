@@ -9,7 +9,7 @@
     <h1>Вход в систему</h1>
 
     <!--/*@thymesVar id="loginForm" type="java"*/-->
-    <form th:action="@{/login}" th:object="${loginForm}" method="post"></form>
+    <form th:action="@{/login}" th:object="${loginForm}" method="post">
 
     <label for="username">Пользователь</label>
     <input type="text" id="username" name="username" autofocus="autofocus">
@@ -17,9 +17,9 @@
     <label for="password">Пароль</label>
     <input type="password" id="password" name="password">
 
-    <td>
-        <button name="inputLogin" type="submit" value="1">Ввод</button>>
-    </td>
+        <input name="inputLogin" type="submit" value="Ввод">
+
+    </form>
 
 </body>
 

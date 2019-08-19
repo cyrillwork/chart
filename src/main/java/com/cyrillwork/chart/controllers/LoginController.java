@@ -21,7 +21,7 @@ public class LoginController {
 
         if("admin".equals(username) && "admin".equals(password))
         {
-            return "home";
+            return "index";
         }
 
         //model.addAllAttributes();

@@ -1,7 +1,10 @@
 <html>
-<body>
 
-    <div> Добавить нового пользователя </div>
+<div><b>Администрирование пользователей</b></div>
+
+</br>
+
+<div><b>Добавить нового пользователя</b></div>
     <div>
         <form method="post" action="add">
             <input type="text" name="name"  placeholder="Имя">
@@ -11,7 +14,7 @@
         </form>
     </div>
 
-    <div> Удалить пользователя </div>
+<div><b>Удалить пользователя</b></div>
     <div>
         <form method="post" action="delete">
             <input type="text" name="del_name"  placeholder="Имя">
@@ -19,14 +22,14 @@
         </form>
     </div>
 
-    <div> Список введеных пользователей </div>
+<div><b>Список введеных пользователей </b></div>
     {{#users}}
         <div>
-            <b> {{name}} </b>
+            <i> {{name}} </i>
             <i> {{email}} </i>
             <i> {{age}} </i>
         </div>
     {{/users}}
-
 </body>
+
 </html>
