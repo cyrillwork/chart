@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Login page</title>
+</head>
+<body>
+    <h1>Вход в систему</h1>
+
+    <!--/*@thymesVar id="loginForm" type="java"*/-->
+    <form th:action="@{/login}" th:object="${loginForm}" method="post"></form>
+
+    <label for="username">Пользователь</label>
+    <input type="text" id="username" name="username" autofocus="autofocus">
+
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password">
+
+    <td>
+        <button name="inputLogin" type="submit" value="1">Ввод</button>>
+    </td>
+
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 <html>
 <body>
+
+    <div> Добавить нового пользователя </div>
     <div>
         <form method="post" action="add">
             <input type="text" name="name"  placeholder="Имя">
@@ -9,6 +11,7 @@
         </form>
     </div>
 
+    <div> Удалить пользователя </div>
     <div>
         <form method="post" action="delete">
             <input type="text" name="del_name"  placeholder="Имя">
@@ -16,7 +19,7 @@
         </form>
     </div>
 
-    <div> Список пользователей </div>
+    <div> Список введеных пользователей </div>
     {{#users}}
         <div>
             <b> {{name}} </b>
