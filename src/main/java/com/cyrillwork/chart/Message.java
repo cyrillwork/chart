@@ -1,4 +1,4 @@
-package com.example.mvc;
+package com.cyrillwork.chart;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

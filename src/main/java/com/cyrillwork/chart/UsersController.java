@@ -1,6 +1,6 @@
-package com.example.mvc;
+package com.cyrillwork.chart;
 
-import com.example.mvc.repos.UserRepository;
+import com.cyrillwork.chart.repos.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,20 +17,6 @@ public class UsersController
 {
     @Autowired
     private UserRepository userRepository;
-
-    @GetMapping("/all")
-    public @ResponseBody Iterable<Message> getAllUsers()
-    {
-        return userRepository.findAll();
-    }
-
-    @GetMapping("/greeting")
-    public String setGreeting(@RequestParam(name="user", required = false, defaultValue = "noname") String name,
-                              Map<String, Object> model)
-    {
-        model.put("name", name);
-        return "greeting";
-    }
 
     @GetMapping
     public  String main(Map<String, Object> model)

@@ -1,8 +1,8 @@
-package com.example.mvc.repos;
+package com.cyrillwork.chart.repos;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.repository.CrudRepository;
-import com.example.mvc.Message;
+import com.cyrillwork.chart.Message;
 
 import javax.transaction.Transactional;
 
