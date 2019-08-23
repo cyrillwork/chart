@@ -9,16 +9,16 @@
 <h1>Регистрация нового пользователя</h1>
 <br>
 
-<form method="POST" th:action="@{/sign_up}" th:object="${sign_up}" >
-
-    <label for="username">Пользователь</label>
-    <input type="text" th:field="*{username}">
-
-    <label for="password">Пароль</label>
-    <input type="password" th:field="*{password}">
-
-    <input name="inputLogin" type="submit" value="Ввод">
-
+<form th:action="@{/registration}" method="post">
+    <div>
+        <label> User Name : <input type="text" name="username"/> </label>
+    </div>
+    <div>
+        <label> Password: <input type="password" name="password"/> </label>
+    </div>
+    <div>
+        <input type="submit" value="Sign In"/>
+    </div>
 </form>
 
 </body>

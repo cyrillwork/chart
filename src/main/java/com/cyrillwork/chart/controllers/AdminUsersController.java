@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
-@Controller
+//@Controller
 public class AdminUsersController
 {
+/*
     @Autowired
     private UserRepository userRepository;
 
@@ -50,5 +51,5 @@ public class AdminUsersController
 
         return "admin_users";
     }
-
+*/
 }

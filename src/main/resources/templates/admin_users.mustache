@@ -7,6 +7,7 @@
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form method="post" action="add">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type="text" name="name"  placeholder="Имя">
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="age"   placeholder="Возраст">
@@ -17,6 +18,7 @@
 <div><b>Удалить пользователя</b></div>
     <div>
         <form method="post" action="delete">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type="text" name="del_name"  placeholder="Имя">
             <button type="submit"> Удалить </button>
         </form>

@@ -17,14 +17,14 @@ public class SignUpController {
     public String showSignUpForm(Model model)
     {
         model.addAttribute("sign_up", new SignUpUser());
-        return "sign_up";
+        return "registration";
     }
 
     @PostMapping
     public String processSignUp(SignUpUser signUpUser)
     {
         log.info("Sign up user" + signUpUser);
-        return "sign_up";
+        return "index";
     }
 
 }
