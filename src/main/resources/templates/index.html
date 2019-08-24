@@ -9,20 +9,23 @@
 
 <body>
 
-<h1>Simple chart</h1>
-<br>
-<div> <a th:href="@{/login}"> Log In>> </a> </div>
-<br>
-<div> <a th:href="@{/sign_up}"> Sign In>> </a> </div>
-<br>
-<div> <a th:href="@{/admin_users}"> Admin users>> </a> </div>
-<br>
+<h1>Простой чат</h1>
+<h1 th:inline="text"> Приветствую [[${#httpServletRequest.remoteUser}]]!</h1>
 
-<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<br>
+<div> <a th:href="@{/login}"> <b> Начать </b> </a> </div>
+<br>
+<div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей </b> </a> </div>
+<br> <br> <br>
+
 <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+    <input type="submit" value="Выйти"/>
 </form>
 
+<!--
+<div> <a th:href="@{/sign_up}"> Sign In>> </a> </div>
+<br>
+-->
 </body>
 
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Администрирование пользователей</title>
+</head>
+
+<body>
+<div><b>Администрирование пользователей</b></div>
+</br>
+<div><b>Добавить нового пользователя</b></div>
+    <div>
+        <form th:action="@{/add_user}" method="post">
+            <input type="text" name="username"  placeholder="Login">
+            <input type="text" name="password"  placeholder="Password">
+            <input type="text" name="role"      placeholder="Role">
+            <button type="submit"> Добавить </button>
+        </form>
+    </div>
+    <br>
+    <div><b>Удалить пользователя</b></div>
+    <div>
+        <form th:action="@{/del_user}" method="post">
+            <input type="text" name="del_name"  placeholder="Имя"/>
+            <button type="submit"> Удалить </button>
+        </form>
+    </div>
+    <br>
+    <div><b>Список пользователей</b></div>
+    <div class="container">
+        <div class="row">
+            <!--<label style="margin-right: 1.5mm" for="each"> th:each : </label>-->
+            <table style="color: green" id="each">
+                <tr th:each="user :${users}">
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.password}"></td>
+                    <td th:text="${user.getStringRole()}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+<div>
+<a th:href="@{http://localhost:8080}"> Вернуться на главную страницу>> </a>
+</div>
+
+</body>
+
+</html>

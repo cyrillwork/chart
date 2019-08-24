@@ -1,17 +1,18 @@
 package com.cyrillwork.chart.controllers;
 
-import com.cyrillwork.chart.LoginForm;
-import com.cyrillwork.chart.SignUpUser;
+import com.cyrillwork.chart.Role;
+import com.cyrillwork.chart.User;
 import com.cyrillwork.chart.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.Map;
 
 @Controller
-public class RegistrationController {
+public class RegistrationController
+{
     @Autowired
     private UserRepository userRepository;
 
@@ -22,15 +23,16 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(SignUpUser user, Map<String, Object> model)
+    public String addUser(User user, Map<String, Object> model)
     {
-        SignUpUser user1 = userRepository.findSignUpUserByUsername(user.getUsername());
-        if(user1 != null)
-        {
+        User user1 = userRepository.findUserByUsername(user.getUsername());
+        if(user1 != null) {
             model.put("message", "User exist!");
             return "registration";
         }
-
+        user.setActive(true);
+        user.setRoles(Collections.singleton(Role.USER));
+        userRepository.save(user);
         return "redirect:/login";
     }
 }

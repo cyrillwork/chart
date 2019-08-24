@@ -1,55 +1,70 @@
 package com.cyrillwork.chart.controllers;
 
-import com.cyrillwork.chart.Message;
+import com.cyrillwork.chart.Role;
+import com.cyrillwork.chart.User;
 import com.cyrillwork.chart.repos.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
-//@Controller
+@Controller
 public class AdminUsersController
 {
-/*
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping("/admin_users")
-    public  String main(Map<String, Object> model)
+    public  String admin_users(Model model)
     {
-        Iterable<Message> users = userRepository.findAll();
-        model.put("users", users);
-        return "admin_users";
+        Iterable<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
+        return "admin_users.html";
     }
 
-    @PostMapping("/add")
-    public String add(  @RequestParam String name,
-                        @RequestParam String email,
-                        @RequestParam Integer age,
-                        Map<String, Object> model)
+    @PostMapping("/add_user")
+    public String add_user(  @RequestParam String username,
+                             @RequestParam String password,
+                             @RequestParam String role,
+                             Model model)
     {
-        userRepository.save(new Message(name, email, age));
+        User u = new User();
+        u.setUsername(username);
+        u.setPassword(password);
 
-        Iterable<Message> users = userRepository.findAll();
+        if("root".equals(username)) {
+            u.setRoles(Collections.singleton(Role.ADMIN));
+        }
+        else {
+            u.setRoles(Collections.singleton(Role.USER));
+        }
+        userRepository.save(u);
 
-        model.put("users", users);
+        Iterable<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
 
-        return "admin_users";
+        return "admin_users.html";
     }
 
-    @PostMapping("/delete")
-    public String delete(  @RequestParam String del_name,
-                            Map<String, Object> model)
+    @PostMapping("/del_user")
+    public String del_user( @RequestParam String del_name, Model model)
     {
-        userRepository.deleteMessagesByName(del_name);
-        Iterable<Message> all = userRepository.findAll();
-        model.put("users", all);
+        userRepository.deleteUserByUsername(del_name);
+        //userRepository.deleteMyUsername(del_name);
 
-        return "admin_users";
+        Iterable<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
+
+        return "admin_users.html";
     }
-*/
+
 }

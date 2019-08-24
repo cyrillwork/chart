@@ -5,31 +5,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Login page</title>
 </head>
+
 <body>
     <h1>Вход в систему</h1>
     <br>
 
     <div th:if="${param.error}">
-        Invalid username and password
+        Неправильное имя пользователя или пароль
     </div>
     <div th:if="${param.logout}">
-        You have been logged out
+        Вы вышли из системы
     </div>
+    <br>
 
     <form th:action="@{/login}" method="post">
         <div>
-            <label> User Name : <input type="text" name="username"/> </label>
+            <label> Пользователь: <input type="text" name="username"/> </label>
         </div>
         <div>
-            <label> Password: <input type="password" name="password"/> </label>
+            <label> Пароль: <input type="password" name="password"/> </label>
         </div>
+        <br>
         <div>
-            <input type="submit" value="Sign In"/>
+            <input type="submit" value="Войти"/>
         </div>
     </form>
-
-    <a th:href="@{/registration.html}"> Registration>> </a> </div>
-
+    <br> <br>
+    <a th:href="@{/registration}"> Регистрация нового пользователя>> </a> </div>
 </body>
 
 </html>
