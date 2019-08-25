@@ -11,12 +11,26 @@
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form th:action="@{/add_user}" method="post">
-            <input type="text" name="username"  placeholder="Login">
-            <input type="text" name="password"  placeholder="Password">
-            <input type="text" name="role"      placeholder="Role">
+            <input type="text" name="username"  placeholder="Имя">
+            <input type="text" name="password"  placeholder="Пароль">
+            <!-- <input type="text" name="role"      placeholder="Role"> -->
+            <div class="container" id="role">
+                <b>Роль пользователя</b>
+                <div th:each="role : ${roles}">
+                    <input name="user_role" type="radio" th:value="${role}" />
+                    <label th:text="${role.toString()}"> Роль пользователя </label>
+                </div>
+            </div>
             <button type="submit"> Добавить </button>
         </form>
     </div>
+    <br>
+
+<div class="container">
+    <!--<div class="row" th:if="${mess_error != null}"></div> -->
+    <p id="mess" th:text="${mess_error}"></p>
+</div>
+
     <br>
     <div><b>Удалить пользователя</b></div>
     <div>
@@ -30,11 +44,18 @@
     <div class="container">
         <div class="row">
             <!--<label style="margin-right: 1.5mm" for="each"> th:each : </label>-->
-            <table style="color: green" id="each">
+            <table style="color: black" id="each">
+                <thead>
+                <tr>
+                    <th> Имя </th>
+                    <th> Пароль </th>
+                    <th> Роль </th>
+                </tr>
+                </thead>
                 <tr th:each="user :${users}">
                     <td th:text="${user.username}"></td>
                     <td th:text="${user.password}"></td>
-                    <td th:text="${user.getStringRole()}"></td>
+                    <td th:text="${user.roles}"></td>
                 </tr>
             </table>
         </div>

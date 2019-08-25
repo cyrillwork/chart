@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class RegistrationController
@@ -30,9 +31,11 @@ public class RegistrationController
             model.put("message", "User exist!");
             return "registration";
         }
+
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
+        user.setRoles(Role.USER);
         userRepository.save(user);
+
         return "redirect:/login";
     }
 }
