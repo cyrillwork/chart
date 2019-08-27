@@ -8,13 +8,23 @@
 <body>
 <h1>Регистрация нового пользователя</h1>
 <br>
+<b><div th:text="${user_exist}"></b>
+</div>
 
-<form th:action="@{/registration}" method="post">
-    <div>
-        <label> Пользователь: <input type="text" name="username"/> </label>
+<form method="post" th:action="@{/registration}" th:object="${user}">
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Пожалуйста, исправьте ошибки
+        </span>
     </div>
     <div>
-        <label> Пароль: <input type="password" name="password"/> </label>
+        <label> Пользователь: <input type="text" th:field="*{username}"/> </label>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('username')}"
+              th:errors="*{username}"> Ошибка ввода пользователя </span>
+    </div>
+    <div>
+        <label> Пароль: <input type="password" th:field="*{password}"/> </label>
     </div>
     <br>
     <div>

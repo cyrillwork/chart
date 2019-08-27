@@ -3,13 +3,18 @@ package com.cyrillwork.chart.controllers;
 import com.cyrillwork.chart.Role;
 import com.cyrillwork.chart.User;
 import com.cyrillwork.chart.repos.UserRepository;
+import com.sun.tracing.dtrace.ModuleAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -26,35 +31,51 @@ public class AdminUsersController
     }
 
     @PostMapping("/add_user")
-    public String add_user(  @RequestParam String username,
-                             @RequestParam String password,
+    public String add_user(  @Valid User user,
+                             BindingResult errors,
                              @RequestParam Map<String, String> form,
                              Model model)
     {
-        if(userRepository.findUserByUsername(username) != null) {
-            model.addAttribute("mess_error", username + " уже есть");
+        if(errors.hasErrors())
+        {
             updateAdminUsers(model);
-            return "admin_users.html";
+
+            errors.getFieldError("username").toString();
+
+            String str_error = new String("Ошибки ввода: ");
+
+            if( errors.getFieldError("username").toString() != null)
+            {
+                //str_error += errors.getFieldError("username").getField();
+                str_error += "Имя пользователя";
+            }
+
+            //final List<FieldError> fieldErrors = errors.getFieldErrors();
+
+            model.addAttribute("error_exit", str_error );
+            return "admin_users";
         }
 
-        User u = new User();
-        u.setUsername(username);
-        u.setPassword(password);
+        if(userRepository.findUserByUsername(user.getUsername()) != null)
+        {
+            model.addAttribute("user_exist",  "Пользователь " + user.getUsername() + " уже есть");
+            updateAdminUsers(model);
+            return "admin_users";
+        }
 
         // Set<String> setRoles = Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
         String r = form.get("user_role");
 
         if(r != null) {
-            u.setRoles(Role.valueOf(r));
+            user.setRoles(Role.valueOf(r));
         }
         else {
-            u.setRoles(Role.USER);
+            user.setRoles(Role.USER);
         }
-        userRepository.save(u);
+        userRepository.save(user);
 
         updateAdminUsers(model);
-
-        return "admin_users.html";
+        return "admin_users";
     }
 
 
@@ -70,6 +91,7 @@ public class AdminUsersController
     {
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
+        model.addAttribute("user", new User());
         model.addAttribute("roles", Role.values());
     }
 

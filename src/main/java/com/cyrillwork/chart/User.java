@@ -4,6 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -15,8 +18,14 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(min=3, max=30, message = "Имя пользователя должно быть от 3 до 30 символов")
     private String username;
+
+    @NotBlank(message = "Введите пароль")
     private String password;
+
     private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

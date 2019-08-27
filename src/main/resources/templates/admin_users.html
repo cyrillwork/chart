@@ -10,26 +10,51 @@
 </br>
 <div><b>Добавить нового пользователя</b></div>
     <div>
-        <form th:action="@{/add_user}" method="post">
-            <input type="text" name="username"  placeholder="Имя">
-            <input type="text" name="password"  placeholder="Пароль">
-            <!-- <input type="text" name="role"      placeholder="Role"> -->
+        <form th:action="@{/add_user}" method="post" th:object="${user}">
+<!--
+            <div th:if="${#fields.hasErrors()}">
+                <span class="validationError">
+                    Пожалуйста, исправьте ошибки
+                </span>
+            </div>
+-->
+            <div class="container">
+                <p id="mess1" th:text="${user_exist}"></p>
+            </div>
+
+            <div class="container">
+                <p id="mess2" th:text="${error_exit}"></p>
+            </div>
+
+            <div>
+            <label> Пользователь:
+                <input type="text" th:field="*{username}">
+                    <span class="validationError"
+                        th:if="${#fields.hasErrors('username')}"
+                        th:errors="*{username}"> Ошибка ввода пользователя
+                    </span>
+            </label>
+            </div>
+
+            <div>
+                <label> Пароль: <input type="password" th:field="*{password}"> </label>
+            </div>
+
+
             <div class="container" id="role">
                 <b>Роль пользователя</b>
                 <div th:each="role : ${roles}">
-                    <input name="user_role" type="radio" th:value="${role}" />
+                    <input name="user_role" type="radio" th:value="${role}" th:checked="${role} == 'USER'" />
                     <label th:text="${role.toString()}"> Роль пользователя </label>
                 </div>
             </div>
+
+
             <button type="submit"> Добавить </button>
         </form>
     </div>
     <br>
 
-<div class="container">
-    <!--<div class="row" th:if="${mess_error != null}"></div> -->
-    <p id="mess" th:text="${mess_error}"></p>
-</div>
 
     <br>
     <div><b>Удалить пользователя</b></div>
