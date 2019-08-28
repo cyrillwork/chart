@@ -25,6 +25,9 @@
     </div>
     <div>
         <label> Пароль: <input type="password" th:field="*{password}"/> </label>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}"> Ошибка ввода пароля </span>
     </div>
     <br>
     <div>

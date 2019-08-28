@@ -23,7 +23,8 @@ public class User implements UserDetails {
     @Size(min=3, max=30, message = "Имя пользователя должно быть от 3 до 30 символов")
     private String username;
 
-    @NotBlank(message = "Введите пароль")
+    @NotNull
+    @Size(min=3, max=20, message = "Пароль должен быть от 3 до 20 символов")
     private String password;
 
     private boolean active;

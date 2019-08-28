@@ -39,19 +39,12 @@ public class AdminUsersController
         if(errors.hasErrors())
         {
             updateAdminUsers(model);
+            String str_error = new String("Ошибки ввода:");
 
-            errors.getFieldError("username").toString();
-
-            String str_error = new String("Ошибки ввода: ");
-
-            if( errors.getFieldError("username").toString() != null)
+            for(FieldError iii: errors.getFieldErrors())
             {
-                //str_error += errors.getFieldError("username").getField();
-                str_error += "Имя пользователя";
+                str_error += " " + iii.getDefaultMessage();
             }
-
-            //final List<FieldError> fieldErrors = errors.getFieldErrors();
-
             model.addAttribute("error_exit", str_error );
             return "admin_users";
         }
