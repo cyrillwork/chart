@@ -2,24 +2,21 @@ package com.cyrillwork.chart.controllers;
 
 import com.cyrillwork.chart.Role;
 import com.cyrillwork.chart.User;
-import com.cyrillwork.chart.repos.UserRepository;
+import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
 
 @Controller
 public class RegistrationController
 {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @GetMapping("/registration")
     public  String registration(User user)
@@ -35,16 +32,16 @@ public class RegistrationController
             return "registration";
         }
 
-        User user1 = userRepository.findUserByUsername(user.getUsername());
+        User getUser = userService.findUserByUsername(user.getUsername());
 
-        if(user1 != null) {
-            model.put("user_exist", "Пользователь " + user.getUsername() +   " уже существует");
+        if(getUser != null) {
+            model.put("user_exist", "Пользователь " + getUser.getUsername() +   " уже существует");
             return "registration";
         }
 
         user.setActive(true);
         user.setRoles(Role.USER);
-        userRepository.save(user);
+        userService.saveUser(user);
 
         return "redirect:/login";
     }

@@ -2,8 +2,7 @@ package com.cyrillwork.chart.controllers;
 
 import com.cyrillwork.chart.Role;
 import com.cyrillwork.chart.User;
-import com.cyrillwork.chart.repos.UserRepository;
-import com.sun.tracing.dtrace.ModuleAttributes;
+import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Map;
 
 @Controller
 public class AdminUsersController
 {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @GetMapping("/admin_users")
     public  String admin_users(Model model)
@@ -49,7 +47,7 @@ public class AdminUsersController
             return "admin_users";
         }
 
-        if(userRepository.findUserByUsername(user.getUsername()) != null)
+        if(userService.findUserByUsername(user.getUsername()) != null)
         {
             model.addAttribute("user_exist",  "Пользователь " + user.getUsername() + " уже есть");
             updateAdminUsers(model);
@@ -65,7 +63,7 @@ public class AdminUsersController
         else {
             user.setRoles(Role.USER);
         }
-        userRepository.save(user);
+        userService.saveUser(user);
 
         updateAdminUsers(model);
         return "admin_users";
@@ -75,15 +73,14 @@ public class AdminUsersController
     @PostMapping("/del_user")
     public String del_user( @RequestParam String del_name, Model model)
     {
-        userRepository.deleteUserByUsername(del_name);
+        userService.deleteUserByUsername(del_name);
         updateAdminUsers(model);
         return "admin_users.html";
     }
 
     public void updateAdminUsers(Model model)
     {
-        Iterable<User> users = userRepository.findAll();
-        model.addAttribute("users", users);
+        model.addAttribute("users", userService.findAllUsers());
         model.addAttribute("user", new User());
         model.addAttribute("roles", Role.values());
     }

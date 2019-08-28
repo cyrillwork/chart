@@ -1,17 +1,17 @@
 package com.cyrillwork.chart;
 
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
@@ -42,20 +42,6 @@ public class User implements UserDetails {
         this.password = password;
         this.active = active;
         this.roles = roles;
-        //this.setRoles(Collections.singleton(Role.ADMIN));
-        //this.roles.add(Role.ADMIN);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     @Override
@@ -87,44 +73,35 @@ public class User implements UserDetails {
         return getRoles();
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
     public void setActive(boolean active) {
         this.active = active;
     }
 
-    public Set<Role> getRoles() {
-        if(this.roles == null)
-        {
-            roles = new HashSet<Role>();
-            roles.add(Role.USER);
-        }
-        return roles;
-    }
-
-    public void setRoles(Role role) {
+    public void setRoles(Role role)
+    {
         if(this.roles == null) {
             this.roles = new HashSet<Role>();
         }
         this.roles.add(role);
     }
 
-    public String getStringRole()
+    public Set<Role> getRoles()
     {
-        return roles.toString();
+        if(this.roles == null) {
+            this.roles = new HashSet<Role>();
+            this.roles.add(Role.USER);
+        }
+        return this.roles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 }

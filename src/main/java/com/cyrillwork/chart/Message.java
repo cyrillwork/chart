@@ -1,10 +1,13 @@
 package com.cyrillwork.chart;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Message
 {
@@ -23,34 +26,5 @@ public class Message
         this.name = name;
         this.email = email;
         this.age = age;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Integer getId(){
-        return id;
-    }
-    public void setId(Integer id){
-        this.id = id;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-    public String getName(){
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
 }
