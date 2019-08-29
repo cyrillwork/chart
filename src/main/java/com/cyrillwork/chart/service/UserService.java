@@ -1,6 +1,6 @@
 package com.cyrillwork.chart.service;
 
-import com.cyrillwork.chart.User;
+import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

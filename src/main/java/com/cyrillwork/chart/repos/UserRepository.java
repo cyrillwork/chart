@@ -1,9 +1,8 @@
 package com.cyrillwork.chart.repos;
 
-import com.cyrillwork.chart.User;
+import com.cyrillwork.chart.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository

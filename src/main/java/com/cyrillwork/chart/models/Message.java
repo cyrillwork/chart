@@ -1,4 +1,4 @@
-package com.cyrillwork.chart;
+package com.cyrillwork.chart.models;
 
 import lombok.Data;
 

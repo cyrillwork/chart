@@ -1,7 +1,7 @@
 package com.cyrillwork.chart.controllers;
 
-import com.cyrillwork.chart.Role;
-import com.cyrillwork.chart.User;
+import com.cyrillwork.chart.models.Role;
+import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
