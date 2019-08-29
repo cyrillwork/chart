@@ -39,18 +39,6 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    /*
-    public User() {
-    }
-
-    public User(String username, String password, boolean active, Set<Role> roles) {
-        this.username = username;
-        this.password = password;
-        this.active = active;
-        this.roles = roles;
-    }
-     */
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

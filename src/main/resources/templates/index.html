@@ -13,7 +13,7 @@
 <h1 th:inline="text"> Приветствую [[${#httpServletRequest.remoteUser}]]!</h1>
 
 <br>
-<div> <a th:href="@{/login}"> <b> Начать </b> </a> </div>
+<div> <a th:href="@{/messages}"> <b> Начать </b> </a> </div>
 <br>
 <div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей </b> </a> </div>
 <br> <br> <br>
@@ -22,10 +22,6 @@
     <input type="submit" value="Выйти"/>
 </form>
 
-<!--
-<div> <a th:href="@{/sign_up}"> Sign In>> </a> </div>
-<br>
--->
 </body>
 
 </html>
