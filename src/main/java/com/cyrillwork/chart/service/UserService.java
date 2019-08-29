@@ -18,6 +18,11 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByUsername(username);
     }
 
+    public Iterable<User> findAllUsers()
+    {
+        return userRepository.findAll();
+    }
+
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
     }
@@ -27,12 +32,15 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public void deleteUserByUsername(String del_name){
-        userRepository.deleteUserByUsername(del_name);
+    public boolean deleteUserByUsername(String del_name){
+        boolean result = false;
+        if(userRepository.findUserByUsername(del_name) != null)
+        {
+            result = true;
+            userRepository.deleteUserByUsername(del_name);
+        }
+        return result;
     }
 
-    public Iterable<User> findAllUsers()
-    {
-        return userRepository.findAll();
-    }
+
 }

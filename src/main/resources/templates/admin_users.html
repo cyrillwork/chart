@@ -11,13 +11,7 @@
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form th:action="@{/add_user}" method="post" th:object="${user}">
-<!--
-            <div th:if="${#fields.hasErrors()}">
-                <span class="validationError">
-                    Пожалуйста, исправьте ошибки
-                </span>
-            </div>
--->
+
             <div class="container">
                 <p id="mess1" th:text="${user_exist}"></p>
             </div>
@@ -44,7 +38,7 @@
             <div class="container" id="role">
                 <b>Роль пользователя</b>
                 <div th:each="role : ${roles}">
-                    <input name="user_role" type="radio" th:value="${role}" th:checked="${role} == 'USER'" />
+                    <input name="user_role" type="radio" th:value="${role}" th:checked="${#strings.equals(role, 'USER')}" />
                     <label th:text="${role.toString()}"> Роль пользователя </label>
                 </div>
             </div>
@@ -60,6 +54,9 @@
     <div><b>Удалить пользователя</b></div>
     <div>
         <form th:action="@{/del_user}" method="post">
+            <div class="container">
+                <p id="mess3" th:text="${user_no_exist}"></p>
+            </div>
             <input type="text" name="del_name"  placeholder="Имя"/>
             <button type="submit"> Удалить </button>
         </form>

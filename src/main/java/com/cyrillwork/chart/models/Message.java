@@ -1,14 +1,17 @@
 package com.cyrillwork.chart.models;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
+//@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
+@Table(name = "user_messages")
 public class Message
 {
     @Id
@@ -16,15 +19,6 @@ public class Message
     private Integer id;
 
     private String name;
-    private String email;
-    private Integer age;
+    private String message;
 
-    public Message() {
-    }
-
-    public Message(String name, String email, Integer age) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
 }

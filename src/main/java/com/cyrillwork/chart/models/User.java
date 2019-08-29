@@ -1,6 +1,9 @@
 package com.cyrillwork.chart.models;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,6 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+//@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
@@ -34,6 +39,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    /*
     public User() {
     }
 
@@ -43,6 +49,7 @@ public class User implements UserDetails {
         this.active = active;
         this.roles = roles;
     }
+     */
 
     @Override
     public boolean isAccountNonExpired() {

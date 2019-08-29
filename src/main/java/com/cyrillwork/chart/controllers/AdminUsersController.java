@@ -73,7 +73,10 @@ public class AdminUsersController
     @PostMapping("/del_user")
     public String del_user( @RequestParam String del_name, Model model)
     {
-        userService.deleteUserByUsername(del_name);
+        if(!userService.deleteUserByUsername(del_name))
+        {
+            model.addAttribute("user_no_exist",  "Пользователь " + del_name + " не найден");
+        }
         updateAdminUsers(model);
         return "admin_users.html";
     }
