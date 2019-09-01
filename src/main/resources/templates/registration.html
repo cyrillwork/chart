@@ -29,6 +29,9 @@
               th:if="${#fields.hasErrors('password')}"
               th:errors="*{password}"> Ошибка ввода пароля </span>
     </div>
+    <div>
+        <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
+    </div>
     <br>
     <div>
         <input type="submit" value="Ввод"/>

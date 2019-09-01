@@ -1,4 +1,4 @@
-package com.cyrillwork.chart.security;
+package com.cyrillwork.chart.config;
 
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     {
         http
                 .authorizeRequests()
-                    .antMatchers("/index", "/registration").permitAll()
+                    .antMatchers("/index", "/registration", "/activate/*").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()

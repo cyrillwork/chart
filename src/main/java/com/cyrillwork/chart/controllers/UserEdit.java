@@ -32,7 +32,6 @@ public class UserEdit {
             @Valid User user,
             BindingResult errors,
             @RequestParam Map<String, String> form,
-            //@RequestParam("id") User user_bd,
             Model model)
     {
         if(errors.hasErrors())

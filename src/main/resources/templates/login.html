@@ -9,6 +9,9 @@
 <body>
     <h1>Вход в систему</h1>
     <br>
+    <div class="container">
+        <p id="activate_mess" th:text="${activate_mess}"></p>
+    </div>
 
     <div th:if="${param.error}">
         Неправильное имя пользователя или пароль

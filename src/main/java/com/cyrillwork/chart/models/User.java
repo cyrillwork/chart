@@ -39,6 +39,16 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    @NotNull
+    @Size(min=3, max=64, message = "Элк.почта должна быть от 3 до 64 символов")
+    private String email;
+
+    private String activationCode;
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -103,4 +113,11 @@ public class User implements UserDetails {
         return id;
     }
 
+    public String getEmail(){
+        return (email == null)? " ": email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
 }

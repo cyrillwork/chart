@@ -5,8 +5,10 @@ import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -32,17 +34,22 @@ public class RegistrationController
             return "registration";
         }
 
-        User getUser = userService.findUserByUsername(user.getUsername());
-
-        if(getUser != null) {
-            model.put("user_exist", "Пользователь " + getUser.getUsername() +   " уже существует");
+        if(!userService.saveUser(user)) {
+            model.put("user_exist", "Пользователь " + user.getUsername() +   " уже существует");
             return "registration";
         }
 
-        user.setActive(true);
-        user.setRoles(Role.USER);
-        userService.saveUser(user);
-
         return "redirect:/login";
+    }
+
+    @GetMapping("/activate/{code}")
+    public String activate(Model model, @PathVariable String code){
+        boolean isActivated = userService.activateUser(code);
+        if(isActivated){
+            model.addAttribute("activate_mess", "Пользовталь активирован");
+        } else {
+            model.addAttribute("activate_mess", "Пользователь не активирован");
+        }
+        return "login";
     }
 }

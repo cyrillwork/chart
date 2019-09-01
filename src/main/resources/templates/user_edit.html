@@ -19,6 +19,9 @@
                 <input type="text" th:field="*{username}">
             </label>
         </div>
+        <div>
+            <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
+        </div>
         <div class="container" id="role">
             <b>Роль пользователя</b>
             <div th:each="role : ${roles}">
