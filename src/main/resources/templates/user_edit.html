@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Рекдактирование данных пользователя</title>
+</head>
+<body>
+
+<div><b>Редактирование данных пользователя</b></div>
+<div>
+    <form th:action="@{/user_edit}" method="post" th:object="${user}">
+        <div class="container">
+            <p id="mess1" th:text="${error_exit}"></p>
+        </div>
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{password}">
+        <div>
+            <label> Пользователь:
+                <input type="text" th:field="*{username}">
+            </label>
+        </div>
+        <div class="container" id="role">
+            <b>Роль пользователя</b>
+            <div th:each="role : ${roles}">
+                <input name="user_role" type="radio" th:value="${role}" th:checked="${#strings.equals(role, 'USER')}" />
+                <label th:text="${role.toString()}"> Роль пользователя </label>
+            </div>
+        </div>
+        <button type="submit"> Ввод </button>
+    </form>
+</div>
+<br>
+<div>
+    <a th:href="@{/admin_users}"> Вернуться к администрированию </a>
+</div>
+
+</body>
+</html>

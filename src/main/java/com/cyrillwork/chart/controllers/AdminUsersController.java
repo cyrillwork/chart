@@ -4,11 +4,13 @@ import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,6 +18,7 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
+@PreAuthorize("hasAuthority('ADMIN')")
 public class AdminUsersController
 {
     @Autowired
@@ -43,7 +46,7 @@ public class AdminUsersController
             {
                 str_error += " " + iii.getDefaultMessage();
             }
-            model.addAttribute("error_exit", str_error );
+            model.addAttribute("error_exist", str_error );
             return "admin_users";
         }
 
@@ -54,15 +57,14 @@ public class AdminUsersController
             return "admin_users";
         }
 
-        // Set<String> setRoles = Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
         String r = form.get("user_role");
-
         if(r != null) {
             user.setRoles(Role.valueOf(r));
         }
         else {
             user.setRoles(Role.USER);
         }
+        user.setActive(true);
         userService.saveUser(user);
 
         updateAdminUsers(model);

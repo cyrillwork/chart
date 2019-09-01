@@ -99,4 +99,8 @@ public class User implements UserDetails {
         return this.roles;
     }
 
+    public Long getId() {
+        return id;
+    }
+
 }
