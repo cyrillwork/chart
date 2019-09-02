@@ -49,10 +49,10 @@ public class UserEdit {
 
         String r = form.get("user_role");
         if(r != null) {
-            user.setRoles(Role.valueOf(r));
+            user.setRole(Role.valueOf(r));
         }
 
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/admin_users";
     }
 

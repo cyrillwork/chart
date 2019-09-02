@@ -34,7 +34,7 @@ public class RegistrationController
             return "registration";
         }
 
-        if(!userService.saveUser(user)) {
+        if(!userService.saveUser(user, true)) {
             model.put("user_exist", "Пользователь " + user.getUsername() +   " уже существует");
             return "registration";
         }

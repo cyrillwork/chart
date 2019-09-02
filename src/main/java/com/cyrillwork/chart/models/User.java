@@ -15,8 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-//@RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
+//@RequiredArgsConstructor
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
@@ -92,12 +92,17 @@ public class User implements UserDetails {
         this.active = active;
     }
 
-    public void setRoles(Role role)
+    public void setRole(Role role)
     {
         if(this.roles == null) {
             this.roles = new HashSet<Role>();
         }
         this.roles.add(role);
+    }
+
+    public void setRoles(Set<Role> roles)
+    {
+        this.roles = roles;
     }
 
     public Set<Role> getRoles()

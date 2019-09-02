@@ -2,29 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/MainConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/MailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/MvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/set_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/set_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/UserEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/UserEdit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/repos/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/repos/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,6 +71,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -165,6 +173,9 @@
       <workItem from="1567250448251" duration="895000" />
       <workItem from="1567314705543" duration="8118000" />
       <workItem from="1567347053295" duration="10033000" />
+      <workItem from="1567406785669" duration="3399000" />
+      <workItem from="1567410411757" duration="1608000" />
+      <workItem from="1567412025678" duration="2617000" />
     </task>
     <servers />
   </component>

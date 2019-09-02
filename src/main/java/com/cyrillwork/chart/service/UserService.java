@@ -33,25 +33,41 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByUsername(username);
     }
 
-    public boolean saveUser(User user)
+    public boolean saveUser(User user, boolean hasMailCheck)
     {
         if( userRepository.findUserById(user.getId()) != null)
         {
             return false;
         }
         user.setActive(true);
-        user.setRoles(Role.USER);
+        user.setRole(Role.USER);
         user.setActivationCode(UUID.randomUUID().toString());
         userRepository.save(user);
 
-        String message = String.format("Привет %s!\n" +
-                "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://localhost:8080/activate/%s",
-                user.getUsername(),
-                user.getActivationCode()
-                );
+        if(hasMailCheck) {
+            String message = String.format("Привет %s!\n" +
+                            "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://localhost:8080/activate/%s",
+                    user.getUsername(),
+                    user.getActivationCode()
+            );
 
-        mailService.send(user.getEmail(), "Activation code", message);
+            mailService.send(user.getEmail(), "Activation code", message);
+        }
 
+        return true;
+    }
+
+    public boolean updateUser(User user){
+        User db_user = userRepository.findUserById(user.getId());
+        if( db_user ==  null)
+        {
+            return false;
+        }
+        db_user.setUsername(user.getUsername());
+        db_user.setRoles(user.getRoles());
+        db_user.setEmail(user.getEmail());
+
+        userRepository.save(db_user);
         return true;
     }
 

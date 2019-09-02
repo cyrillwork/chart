@@ -19,6 +19,13 @@
                 <input type="text" th:field="*{username}">
             </label>
         </div>
+
+        <div class="container" id="active">
+            <label> Активный
+                <input type="checkbox" th:checked="*{active}" />
+            </label>
+        </div>
+
         <div>
             <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
         </div>
@@ -29,6 +36,13 @@
                 <label th:text="${role.toString()}"> Роль пользователя </label>
             </div>
         </div>
+<!--
+        <div class="container" id="role2" th:switch="*{roles}">
+            <p th:case="'ADMIN'">User is an administrator</p>
+            <p th:case="'USER'">User is a simple user</p>
+            <p th:case="*">User is some other thing</p>
+        </div>
+-->
         <button type="submit"> Ввод </button>
     </form>
 </div>

@@ -59,13 +59,13 @@ public class AdminUsersController
 
         String r = form.get("user_role");
         if(r != null) {
-            user.setRoles(Role.valueOf(r));
+            user.setRole(Role.valueOf(r));
         }
         else {
-            user.setRoles(Role.USER);
+            user.setRole(Role.USER);
         }
         user.setActive(true);
-        userService.saveUser(user);
+        userService.saveUser(user, false);
 
         updateAdminUsers(model);
         return "admin_users";
