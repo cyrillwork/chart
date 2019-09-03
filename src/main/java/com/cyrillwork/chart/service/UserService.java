@@ -4,6 +4,7 @@ import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,6 +19,12 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private MailService mailService;
+
+    @Value("${server.host}")
+    private String host;
+
+    @Value("${server.port}")
+    private String port;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -46,7 +53,8 @@ public class UserService implements UserDetailsService {
 
         if(hasMailCheck) {
             String message = String.format("Привет %s!\n" +
-                            "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://localhost:8080/activate/%s",
+                            "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://%s:%s/activate/%s",
+                    host, port,
                     user.getUsername(),
                     user.getActivationCode()
             );
@@ -66,6 +74,7 @@ public class UserService implements UserDetailsService {
         db_user.setUsername(user.getUsername());
         db_user.setRoles(user.getRoles());
         db_user.setEmail(user.getEmail());
+        db_user.setActive(user.isActive());
 
         userRepository.save(db_user);
         return true;

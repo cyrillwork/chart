@@ -22,9 +22,7 @@ public class Message
     private Long id;
 
     @NotNull
-    @Size(min=3, max=20, message = "Пароль должен быть от 3 до 20 символов")
     private String text;
-
 
     @ManyToOne(targetEntity = User.class)
     private User user;

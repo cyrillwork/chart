@@ -39,6 +39,9 @@ public class MainConfig {
 
         properties.setProperty("mail.transport.protocol", protocol);
         properties.setProperty("mail.debug", debug);
+        properties.setProperty("mail.smtp.proxy.host", "192.168.92.249");
+        properties.setProperty("mail.smtp.proxy.port", "3128");
+
         return mailSender;
     }
 }

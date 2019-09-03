@@ -3,7 +3,6 @@ package com.cyrillwork.chart.models;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,7 +15,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
-//@RequiredArgsConstructor
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
@@ -32,12 +30,12 @@ public class User implements UserDetails {
     @Size(min=3, max=20, message = "Пароль должен быть от 3 до 20 символов")
     private String password;
 
-    private boolean active;
-
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    private boolean active;
 
     @NotNull
     @Size(min=3, max=64, message = "Элк.почта должна быть от 3 до 64 символов")
@@ -88,9 +86,6 @@ public class User implements UserDetails {
         return username;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 
     public void setRole(Role role)
     {
@@ -114,15 +109,10 @@ public class User implements UserDetails {
         return this.roles;
     }
 
-    public Long getId() {
-        return id;
+    public boolean getRoleString(String name)
+    {
+        return roles.toString().equals("[" + name + "]");
     }
 
-    public String getEmail(){
-        return (email == null)? " ": email;
-    }
 
-    public String getActivationCode() {
-        return activationCode;
-    }
 }

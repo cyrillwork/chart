@@ -26,4 +26,4 @@ COPY public.user_role (user_id, roles) FROM stdin;
 \.
 
 insert into public.usr values (1, true, '12345', 'root', 'root@mail.com', '');
-insert into public.usr values (2, true, '12345', 'user', 'user@mail.com', '');
+insert into public.usr values (2, false, '12345', 'user', 'user@mail.com', '');
