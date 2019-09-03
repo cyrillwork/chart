@@ -1,5 +1,6 @@
 package com.cyrillwork.chart.service;
 
+import com.cyrillwork.chart.properties.MailProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,13 +12,13 @@ public class MailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
-    private String username;
+    @Autowired
+    private MailProperties mailProperties;
 
     public void send(String email, String subject, String message){
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-        mailMessage.setFrom(username);
+        mailMessage.setFrom(mailProperties.getUsername());
         mailMessage.setTo(email);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
