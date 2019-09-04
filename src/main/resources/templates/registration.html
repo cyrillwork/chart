@@ -12,6 +12,7 @@
 </div>
 
 <form method="post" th:action="@{/registration}" th:object="${user}">
+    <input type="hidden" th:field="*{id}">
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
             Пожалуйста, исправьте ошибки

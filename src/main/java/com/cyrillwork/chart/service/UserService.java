@@ -2,9 +2,9 @@ package com.cyrillwork.chart.service;
 
 import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
+import com.cyrillwork.chart.properties.MainProperties;
 import com.cyrillwork.chart.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,11 +20,8 @@ public class UserService implements UserDetailsService {
     @Autowired
     private MailService mailService;
 
-    @Value("${server.host}")
-    private String host;
-
-    @Value("${server.port}")
-    private String port;
+    @Autowired
+    private MainProperties mainProperties;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -46,15 +43,19 @@ public class UserService implements UserDetailsService {
         {
             return false;
         }
+        if(!user.hasRole())
+        {
+            user.setRole(Role.USER);
+        }
         user.setActive(true);
-        user.setRole(Role.USER);
         user.setActivationCode(UUID.randomUUID().toString());
         userRepository.save(user);
 
         if(hasMailCheck) {
             String message = String.format("Привет %s!\n" +
                             "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://%s:%s/activate/%s",
-                    host, port,
+                    mainProperties.getHost(),
+                    mainProperties.getPort(),
                     user.getUsername(),
                     user.getActivationCode()
             );
@@ -80,12 +81,12 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
-    public boolean deleteUserByUsername(String del_name){
+    public boolean deleteUserById(Long id){
         boolean result = false;
-        if(userRepository.findUserByUsername(del_name) != null)
+        if(userRepository.findUserById(id) != null)
         {
             result = true;
-            userRepository.deleteUserByUsername(del_name);
+            userRepository.deleteUserById(id);
         }
         return result;
     }

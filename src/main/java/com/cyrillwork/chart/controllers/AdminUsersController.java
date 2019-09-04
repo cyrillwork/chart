@@ -41,7 +41,6 @@ public class AdminUsersController
         {
             updateAdminUsers(model);
             String str_error = new String("Ошибки ввода:");
-
             for(FieldError iii: errors.getFieldErrors())
             {
                 str_error += " " + iii.getDefaultMessage();
@@ -71,13 +70,12 @@ public class AdminUsersController
         return "admin_users";
     }
 
-
-    @PostMapping("/del_user")
-    public String del_user( @RequestParam String del_name, Model model)
+    @GetMapping("/del_user/{user}")
+    public String del_user(@PathVariable User user, Model model)
     {
-        if(!userService.deleteUserByUsername(del_name))
+        if(!userService.deleteUserById(user.getId()))
         {
-            model.addAttribute("user_no_exist",  "Пользователь " + del_name + " не найден");
+            model.addAttribute("user_no_exist",  "Пользователь " + user.getUsername() + " не найден");
         }
         updateAdminUsers(model);
         return "admin_users.html";

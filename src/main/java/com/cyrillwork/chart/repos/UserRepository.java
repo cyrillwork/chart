@@ -11,10 +11,10 @@ public interface UserRepository extends JpaRepository<User, Long>
 {
     User findUserByUsername(String username);
     User findUserById(Long id);
+    User findUserByActivationCode(String code);
 
     @Modifying
     @Transactional
-    void deleteUserByUsername(String username);
+    void deleteUserById(Long id);
 
-    User findUserByActivationCode(String code);
 }

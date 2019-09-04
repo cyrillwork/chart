@@ -6,6 +6,7 @@ For work you need PostgreSQL.
 Create database db_chart and user develop with password 123456 
 (or change application-property). 
 There are sql-commands in file init.sql, which do it.
+At first start, DB has to automatically deploys to create user 'admin' with password '12345'.  
 
 # build
 mvn -X clean package

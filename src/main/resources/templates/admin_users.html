@@ -11,15 +11,13 @@
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form th:action="@{/add_user}" method="post" th:object="${user}">
-
+            <input type="hidden" th:field="*{id}">
             <div class="container">
                 <p id="mess1" th:text="${user_exist}"></p>
             </div>
-
             <div class="container">
                 <p id="mess2" th:text="${error_exist}"></p>
             </div>
-
             <div>
             <label> Пользователь:
                 <input type="text" th:field="*{username}">
@@ -29,7 +27,6 @@
                     </span>
             </label>
             </div>
-
             <div>
                 <label> Пароль: <input type="password" th:field="*{password}"> </label>
             </div>
@@ -44,23 +41,7 @@
                     <label th:text="${role.toString()}"> Роль пользователя </label>
                 </div>
             </div>
-
-
             <button type="submit"> Добавить </button>
-        </form>
-    </div>
-    <br>
-
-
-    <br>
-    <div><b>Удалить пользователя</b></div>
-    <div>
-        <form th:action="@{/del_user}" method="post">
-            <div class="container">
-                <p id="mess3" th:text="${user_no_exist}"></p>
-            </div>
-            <input type="text" name="del_name"  placeholder="Имя"/>
-            <button type="submit"> Удалить </button>
         </form>
     </div>
     <br>
@@ -83,6 +64,7 @@
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.roles}"></td>
                     <td> <a th:href="@{'/user_edit/'+${user.id}}">Редактировать</a></td>
+                    <td> <a th:href="@{'/del_user/'+${user.id}}">Удалить</a></td>
                 </tr>
             </table>
         </div>

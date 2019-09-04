@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties("chart")
+@ConfigurationProperties("mail")
 public class MailProperties {
     @Value("${chart.mail.host}")
     private String host;

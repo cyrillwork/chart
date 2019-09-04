@@ -92,6 +92,9 @@ public class User implements UserDetails {
         if(this.roles == null) {
             this.roles = new HashSet<Role>();
         }
+        else {
+            this.roles.clear();
+        }
         this.roles.add(role);
     }
 
@@ -107,6 +110,10 @@ public class User implements UserDetails {
             this.roles.add(Role.USER);
         }
         return this.roles;
+    }
+
+    public boolean hasRole(){
+        return ((this.roles != null) && (!this.roles.isEmpty()));
     }
 
     public boolean getRoleString(String name)
