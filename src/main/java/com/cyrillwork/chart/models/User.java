@@ -23,11 +23,11 @@ public class User implements UserDetails {
     private Long id;
 
     @NotNull
-    @Size(min=3, max=30, message = "Имя пользователя должно быть от 3 до 30 символов")
+    @Size(min=3, max=64, message = "Имя пользователя должно быть от 3 до 64 символов")
     private String username;
 
     @NotNull
-    @Size(min=3, max=20, message = "Пароль должен быть от 3 до 20 символов")
+    @Size(min=3, max=64, message = "Пароль должен быть от 3 до 64 символов")
     private String password;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

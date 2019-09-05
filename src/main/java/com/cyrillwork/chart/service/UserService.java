@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -22,6 +23,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private MainProperties mainProperties;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -49,14 +53,15 @@ public class UserService implements UserDetailsService {
         }
         user.setActive(true);
         user.setActivationCode(UUID.randomUUID().toString());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
         if(hasMailCheck) {
             String message = String.format("Привет %s!\n" +
                             "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://%s:%s/activate/%s",
+                    user.getUsername(),
                     mainProperties.getHost(),
                     mainProperties.getPort(),
-                    user.getUsername(),
                     user.getActivationCode()
             );
 

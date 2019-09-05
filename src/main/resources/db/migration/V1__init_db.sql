@@ -16,8 +16,8 @@ create table usr (
 	activation_code varchar(255), 
 	active boolean not null, 
 	email varchar(64) not null, 
-	password varchar(20) not null, 
-	username varchar(30) not null, primary key (id)
+	password varchar(64) not null,
+	username varchar(64) not null, primary key (id)
 );
 
 alter table if exists user_messages 

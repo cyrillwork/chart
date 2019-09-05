@@ -53,14 +53,14 @@
                 <thead>
                 <tr>
                     <th> Имя </th>
-                    <th> Пароль </th>
+                    <!--<th> Пароль </th>-->
                     <th> Элк.почта </th>
                     <th> Роль </th>
                 </tr>
                 </thead>
                 <tr th:each="user :${users}">
                     <td th:text="${user.username}"></td>
-                    <td th:text="${user.password}"></td>
+                    <!-- <td th:text="${user.password}"></td> -->
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.roles}"></td>
                     <td> <a th:href="@{'/user_edit/'+${user.id}}">Редактировать</a></td>
