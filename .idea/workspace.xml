@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V3__Encode_password.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +38,7 @@
       <list>
         <option value="Interface" />
         <option value="HTML File" />
+        <option value="package.json" />
         <option value="Class" />
       </list>
     </option>
@@ -67,7 +71,8 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -98,18 +103,78 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.Application" />
+  <component name="RunManager" selected="JUnit.AdminUsersTest">
+    <configuration name="AdminUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.models.*" />
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.AdminUsersTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminUsersTest.mainPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.AdminUsersTest" />
+      <option name="METHOD_NAME" value="mainPageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.testInputLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.LoginTest" />
+      <option name="METHOD_NAME" value="testInputLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="chart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cyrillwork.chart.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,7 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.AdminUsersTest" />
+        <item itemvalue="Spring Boot.Application (1)" />
+        <item itemvalue="JUnit.AdminUsersTest.mainPageTest" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.testInputLogin" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +214,12 @@
       <serviceView>
         <option name="contentProportion" value="0.11958875" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1ef78c8f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -187,6 +261,10 @@
       <workItem from="1567595383845" duration="6289000" />
       <workItem from="1567601721726" duration="5387000" />
       <workItem from="1567677404452" duration="2005000" />
+      <workItem from="1567685962488" duration="799000" />
+      <workItem from="1567687244039" duration="105000" />
+      <workItem from="1567687407561" duration="4783000" />
+      <workItem from="1567765801696" duration="12622000" />
     </task>
     <servers />
   </component>

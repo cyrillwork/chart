@@ -21,20 +21,24 @@
     </div>
     <br>
 
-    <form th:action="@{/login}" method="post">
-        <div>
-            <label> Пользователь: <input type="text" name="username"/> </label>
-        </div>
-        <div>
-            <label> Пароль: <input type="password" name="password"/> </label>
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Войти"/>
-        </div>
-    </form>
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label> Пользователь: <input type="text" name="username"/> </label>
+            </div>
+            <div>
+                <label> Пароль: <input type="password" name="password"/> </label>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Войти"/>
+            </div>
+        </form>
+
     <br> <br>
     <a th:href="@{/registration}"> Регистрация нового пользователя>> </a> </div>
+    <br> <br>
+    <div th:insert="common::copy"></div>
+
 </body>
 
 </html>

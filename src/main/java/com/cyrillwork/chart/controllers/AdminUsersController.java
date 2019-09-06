@@ -5,6 +5,7 @@ import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,8 +26,9 @@ public class AdminUsersController
     private UserService userService;
 
     @GetMapping("/admin_users")
-    public  String admin_users(Model model)
+    public  String admin_users(@AuthenticationPrincipal User login_user, Model model)
     {
+        model.addAttribute("login_user", login_user.getUsername());
         updateAdminUsers(model);
         return "admin_users.html";
     }

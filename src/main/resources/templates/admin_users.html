@@ -7,11 +7,12 @@
 
 <body>
 <div><b>Администрирование пользователей</b></div>
-</br>
+<div id="login_user" th:text="${login_user}"></div>
+
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form th:action="@{/add_user}" method="post" th:object="${user}">
-            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{id}"/>
             <div class="container">
                 <p id="mess1" th:text="${user_exist}"></p>
             </div>
@@ -19,16 +20,16 @@
                 <p id="mess2" th:text="${error_exist}"></p>
             </div>
             <div>
-            <label> Пользователь:
-                <input type="text" th:field="*{username}">
+                <label> Пользователь:
+                <input type="text" th:field="*{username}"/>
                     <span class="validationError"
                         th:if="${#fields.hasErrors('username')}"
                         th:errors="*{username}"> Ошибка ввода пользователя
                     </span>
-            </label>
+                </label>
             </div>
             <div>
-                <label> Пароль: <input type="password" th:field="*{password}"> </label>
+                <label> Пароль: <input type="password" th:field="*{password}"/> </label>
             </div>
             <div>
                 <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
@@ -44,7 +45,6 @@
             <button type="submit"> Добавить </button>
         </form>
     </div>
-    <br>
     <div><b>Список пользователей</b></div>
     <div class="container">
         <div class="row">
@@ -69,9 +69,7 @@
             </table>
         </div>
     </div>
-</div>
 
-<br>
 <div>
 <a th:href="@{/}"> Вернуться на главную страницу>> </a>
 </div>
