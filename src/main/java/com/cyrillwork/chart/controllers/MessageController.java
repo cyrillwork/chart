@@ -28,7 +28,8 @@ public class MessageController {
     public  String input_message(
             @AuthenticationPrincipal User user,
             @Valid Message message,
-            BindingResult result, Model model){
+            BindingResult result,
+            Model model){
 
         message.setUser(user);
 

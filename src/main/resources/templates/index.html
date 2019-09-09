@@ -10,17 +10,25 @@
 <body>
 
 <h1>Простой чат</h1>
-<h1 th:inline="text"> Приветствую [[${#httpServletRequest.remoteUser}]]!</h1>
+
+<h1>  <div id="login_user" th:text="'Приветствую ' + ${login_user.username}">  </div> </h1>
 
 <br>
 <div> <a th:href="@{/messages}"> <b> Начать </b> </a> </div>
 <br>
-<div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей (только для ADMIN пользователей) </b> </a> </div>
+
+<div th:if="${login_user.isAdmin()} == true">
+    <div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей (только для ADMIN пользователей) </b> </a> </div>
+</div>
+
 <br> <br> <br>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Выйти"/>
 </form>
+
+<br> <br>
+<div th:insert="common::copy"></div>
 
 </body>
 

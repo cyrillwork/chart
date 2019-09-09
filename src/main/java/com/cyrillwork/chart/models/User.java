@@ -116,6 +116,14 @@ public class User implements UserDetails {
         return ((this.roles != null) && (!this.roles.isEmpty()));
     }
 
+    public  boolean isAdmin() {
+        boolean result = false;
+        if(roles != null) {
+            result = roles.stream().anyMatch(Role.ADMIN::equals);
+        }
+        return result;
+    }
+
     public boolean getRoleString(String name)
     {
         return roles.toString().equals("[" + name + "]");

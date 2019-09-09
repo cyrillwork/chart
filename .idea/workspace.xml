@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +215,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fe146eb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@61e92498" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -264,6 +264,8 @@
       <workItem from="1567687407561" duration="4783000" />
       <workItem from="1567765801696" duration="12622000" />
       <workItem from="1568014929859" duration="3531000" />
+      <workItem from="1568026665149" duration="4524000" />
+      <workItem from="1568036956372" duration="5017000" />
     </task>
     <servers />
   </component>
