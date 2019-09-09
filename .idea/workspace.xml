@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/common.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/AdminUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,7 +101,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AdminUsersTest">
+  <component name="RunManager" selected="Spring Boot.Application (1)">
     <configuration name="AdminUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
@@ -201,10 +199,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdminUsersTest" />
         <item itemvalue="Spring Boot.Application (1)" />
-        <item itemvalue="JUnit.AdminUsersTest.mainPageTest" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.AdminUsersTest" />
+        <item itemvalue="JUnit.AdminUsersTest.mainPageTest" />
         <item itemvalue="JUnit.LoginTest.testInputLogin" />
       </list>
     </recent_temporary>
@@ -217,7 +215,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1ef78c8f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fe146eb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -265,6 +263,7 @@
       <workItem from="1567687244039" duration="105000" />
       <workItem from="1567687407561" duration="4783000" />
       <workItem from="1567765801696" duration="12622000" />
+      <workItem from="1568014929859" duration="3531000" />
     </task>
     <servers />
   </component>
