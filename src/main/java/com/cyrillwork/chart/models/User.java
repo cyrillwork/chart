@@ -126,6 +126,11 @@ public class User implements UserDetails {
 
     public boolean getRoleString(String name)
     {
+        if((roles == null) || (name == null))
+        {
+            return false;
+        }
+
         return roles.toString().equals("[" + name + "]");
     }
 

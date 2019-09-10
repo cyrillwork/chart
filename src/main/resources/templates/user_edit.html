@@ -8,10 +8,11 @@
 
 <div><b>Редактирование данных пользователя</b></div>
 <div>
+    <br/>
+    <div class="container">
+        <p id="mess1" th:text="${error_exist}"></p>
+    </div>
     <form th:action="@{/user_edit}" method="post" th:object="${user}">
-        <div class="container">
-            <p id="mess1" th:text="${error_exit}"></p>
-        </div>
         <input type="hidden" th:field="*{id}">
         <input type="hidden" th:field="*{password}">
         <div>
@@ -43,13 +44,16 @@
             <p th:case="*">User is some other thing</p>
         </div>
 -->
+        <br/>
         <button type="submit"> Ввод </button>
     </form>
 </div>
-<br>
+<br/>
 <div>
     <a th:href="@{/admin_users}"> Вернуться к администрированию </a>
 </div>
+<br/> <br/>
+<div th:insert="common::copy"></div>
 
 </body>
 </html>

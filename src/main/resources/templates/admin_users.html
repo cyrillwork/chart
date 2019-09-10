@@ -8,7 +8,8 @@
 <body>
 <div><b>Администрирование пользователей</b></div>
 <div id="login_user" th:text="${login_user}"></div>
-
+<br/>
+<br/>
 <div><b>Добавить нового пользователя</b></div>
     <div>
         <form th:action="@{/add_user}" method="post" th:object="${user}">
@@ -42,14 +43,17 @@
                     <label th:text="${role.toString()}"> Роль пользователя </label>
                 </div>
             </div>
+            <br/>
             <button type="submit"> Добавить </button>
         </form>
     </div>
+<br/>
+<br/>
     <div><b>Список пользователей</b></div>
     <div class="container">
         <div class="row">
             <!--<label style="margin-right: 1.5mm" for="each"> th:each : </label>-->
-            <table style="color: black" id="each">
+            <table style="color: black">
                 <thead>
                 <tr>
                     <th> Имя </th>
@@ -58,7 +62,7 @@
                     <th> Роль </th>
                 </tr>
                 </thead>
-                <tr th:each="user :${users}">
+                <tr id="users-table" th:each="user :${users}">
                     <td th:text="${user.username}"></td>
                     <!-- <td th:text="${user.password}"></td> -->
                     <td th:text="${user.email}"></td>
@@ -69,10 +73,12 @@
             </table>
         </div>
     </div>
-
+<br/>
 <div>
 <a th:href="@{/}"> Вернуться на главную страницу>> </a>
 </div>
+<br/> <br/>
+<div th:insert="common::copy"></div>
 
 </body>
 
