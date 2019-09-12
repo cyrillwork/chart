@@ -41,6 +41,8 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByUsername(username);
     }
 
+    public User findUserById(Long id) { return userRepository.findUserById(id); }
+
     public boolean saveUser(User user, boolean hasMailCheck)
     {
         if( userRepository.findUserById(user.getId()) != null)
@@ -103,5 +105,18 @@ public class UserService implements UserDetailsService {
             return false;
         }
         return true;
+    }
+
+    public boolean existOneMoreUser(User user) {
+        boolean result = false;
+        User user_bd = userRepository.findUserByUsername(user.getUsername());
+        if(user_bd != null)
+        {
+            if(user_bd.getId() != user.getId())
+            {
+                result = true;
+            }
+        }
+        return result;
     }
 }

@@ -13,6 +13,6 @@ public class MainProperties {
     private String host;
 
     @Value("${chart.server.port}")
-    private int port;
+    private Integer port;
 
 }

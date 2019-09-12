@@ -21,12 +21,12 @@ public class UserEdit {
     @Autowired
     UserService userService;
 
-    @GetMapping("{user}")
-    public String userEdit(@PathVariable User user, Model model) {
+    @GetMapping("{id}")
+    public String userEditById(@PathVariable Long id, Model model) {
         model.addAttribute("roles", Role.values());
+        model.addAttribute("user", userService.findUserById(id));
         return "user_edit";
     }
-
 
     @PostMapping
     public String userSave(
@@ -35,16 +35,27 @@ public class UserEdit {
             @RequestParam Map<String, String> form,
             Model model)
     {
-        if(errors.hasErrors())
+        boolean isExistUser = false;
+
+        if( errors.hasErrors() || (isExistUser = userService.existOneMoreUser(user)) )
         {
-            String str_error = new String("Ошибки ввода:");
-            for(FieldError iii: errors.getFieldErrors())
+            String str_error = new String("");
+
+            if(isExistUser)
             {
-                str_error += " " + iii.getDefaultMessage();
+                str_error += "Пользователь " + user.getUsername() + " уже есть !!!";
             }
+
+//            String str_error = new String("Ошибки ввода:");
+//            for(FieldError iii: errors.getFieldErrors())
+//            {
+//                str_error += " " + iii.getDefaultMessage();
+//            }
+
             model.addAttribute("error_exist", str_error );
             model.addAttribute("roles", Role.values());
             model.addAttribute("user", user);
+            //return "redirect:/user_edit/" + user.getId();
             return "user_edit";
         }
 

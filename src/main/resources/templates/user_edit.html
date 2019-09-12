@@ -19,6 +19,11 @@
             <label> Пользователь:
                 <input type="text" th:field="*{username}">
             </label>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('username')}"
+                  th:errors="*{username}"> Ошибка ввода пользователя
+            </span>
+
         </div>
 
         <div>
@@ -29,6 +34,10 @@
 
         <div>
             <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"> Ошибка ввода пользователя
+            </span>
         </div>
         <div class="container" id="role">
             <b>Роль пользователя</b>
