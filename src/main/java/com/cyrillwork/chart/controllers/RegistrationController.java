@@ -1,6 +1,5 @@
 package com.cyrillwork.chart.controllers;
 
-import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @Controller
 public class RegistrationController
@@ -52,8 +50,6 @@ public class RegistrationController
             model.addAttribute("user_exist", "Пользователь " + user.getUsername() + " уже существует");
             return "registration";
         }
-
-
 
         return "redirect:/login";
     }

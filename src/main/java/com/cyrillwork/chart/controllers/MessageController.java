@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 public class MessageController {
@@ -29,9 +31,16 @@ public class MessageController {
             @AuthenticationPrincipal User user,
             @Valid Message message,
             BindingResult result,
-            Model model){
-
+            Model model,
+            @RequestParam Map<String, String> form
+    ) {
         message.setUser(user);
+
+        String fileName = form.get("file_name");
+        if (! ((fileName == null) || fileName.equals("")) )
+        {
+            message.setFileName(fileName);
+        }
 
         messageService.saveMessage(message);
 

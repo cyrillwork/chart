@@ -38,4 +38,14 @@ public class Message
         this.createAt = new Date();
     }
 
+    private String fileName;
+
+    public String getFileNameString()
+    {
+        if(fileName == null)
+        {
+            return "";
+        }
+        return fileName;
+    }
 }

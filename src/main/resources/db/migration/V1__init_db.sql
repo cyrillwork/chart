@@ -3,7 +3,8 @@ create sequence hibernate_sequence start 1 increment 1;
 create table user_messages (
 	id bigint not null,
 	create_at timestamp, 
-	text varchar(255) not null, 
+	text varchar(255) not null,
+	file_name varchar(255),
 	user_id bigint, primary key (id));
 
 create table user_role (

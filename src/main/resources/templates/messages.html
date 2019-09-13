@@ -14,8 +14,11 @@
         <table style="color: black" id="each">
             <tr th:each="mess :${all_messages}">
                 <td th:text="${mess.text}"></td>
-                <td th:text="${mess.user.username}"></td>
-                <td th:text="${mess.createAt}"></td>
+                <td th:text="${mess.getFileNameString()}"></td>
+                    <span>
+                        <td th:text="${mess.user.username}"></td>
+                        <td th:text="${mess.createAt}"></td>
+                    </span>
             </tr>
         </table>
     </div>
@@ -27,6 +30,9 @@
     <form th:action="@{/messages}" method="post" th:object="${message}">
         <div>
             <label> Сообщение: <input type="text" th:field="*{text}"> </label>
+        </div>
+        <div>
+            <label> Прикрепить файл: <input type="file" name="file_name"> </label>
         </div>
         <button type="submit"> Добавить </button>
     </form>

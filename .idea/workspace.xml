@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/service/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/controllers/RegistrationControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/UserEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/UserEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/properties/MainProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/properties/MainProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/messages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +80,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.cyrillwork.chart.controllers" />
       <recent name="com.cyrillwork.chart.service" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -110,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest">
+  <component name="RunManager" selected="Spring Boot.Application (1)">
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
@@ -126,48 +129,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.service.*" />
+          <option name="PATTERN" value="com.cyrillwork.chart.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.service" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.service.UserServiceTest" />
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.controllers.RegistrationControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.saveUserFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationControllerTest.addUserConfirmPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.service.*" />
+          <option name="PATTERN" value="com.cyrillwork.chart.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.service" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="saveUserFail" />
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.controllers.RegistrationControllerTest" />
+      <option name="METHOD_NAME" value="addUserConfirmPassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.saveUserWithMailCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationControllerTest.addUserExistUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.service.*" />
+          <option name="PATTERN" value="com.cyrillwork.chart.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.service" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="saveUserWithMailCheck" />
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.controllers.RegistrationControllerTest" />
+      <option name="METHOD_NAME" value="addUserExistUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,11 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.saveUserFail" />
-        <item itemvalue="JUnit.UserServiceTest.saveUserWithMailCheck" />
         <item itemvalue="Spring Boot.Application (1)" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.RegistrationControllerTest" />
+        <item itemvalue="JUnit.RegistrationControllerTest.addUserExistUser" />
+        <item itemvalue="JUnit.RegistrationControllerTest.addUserConfirmPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +278,7 @@
       <workItem from="1568014929859" duration="3531000" />
       <workItem from="1568026665149" duration="4524000" />
       <workItem from="1568036956372" duration="5017000" />
-      <workItem from="1568099612765" duration="24446000" />
+      <workItem from="1568099612765" duration="34952000" />
     </task>
     <servers />
   </component>
