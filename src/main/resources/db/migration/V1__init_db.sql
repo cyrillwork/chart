@@ -21,6 +21,12 @@ create table usr (
 	username varchar(64) not null, primary key (id)
 );
 
+-- create table spring_session_chart (
+--     id bigint not null,
+--     username varchar(64) not null, primary key (id)
+-- );
+
+
 alter table if exists user_messages 
 	add constraint massage_user_fk 
 	foreign key (user_id) references usr;

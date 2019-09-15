@@ -2,6 +2,7 @@ package com.cyrillwork.chart.controllers;
 
 import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
+import com.cyrillwork.chart.service.SessionService;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,10 +26,23 @@ public class AdminUsersController
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SessionService sessionService;
+
     @GetMapping("/admin_users")
     public  String admin_users(@AuthenticationPrincipal User login_user, Model model)
     {
         model.addAttribute("login_user", login_user.getUsername());
+        updateAdminUsers(model);
+        return "admin_users.html";
+    }
+
+    @GetMapping("/exit_user/{sessionId}")
+    public String exit_user(
+            @PathVariable String sessionId,
+            Model model)
+    {
+        sessionService.exitUser(sessionId);
         updateAdminUsers(model);
         return "admin_users.html";
     }
@@ -86,6 +100,7 @@ public class AdminUsersController
     public void updateAdminUsers(Model model)
     {
         model.addAttribute("users", userService.findAllUsers());
+        model.addAttribute("chart_sessions", sessionService.getAllSessions());
         model.addAttribute("user", new User());
         model.addAttribute("roles", Role.values());
     }

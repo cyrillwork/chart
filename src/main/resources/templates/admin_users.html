@@ -74,6 +74,29 @@
         </div>
     </div>
 <br/>
+<br/>
+<div><b>Список текущих сессий</b></div>
+<div class="container">
+    <div class="row">
+        <!--<label style="margin-right: 1.5mm" for="each"> th:each : </label>-->
+        <table style="color: black">
+            <thead>
+            <tr>
+                <th> Номер сессии </th>
+                <th> Имя пользователя </th>
+                <th> Последний запрос </th>
+            </tr>
+            </thead>
+            <tr id="sessions-table" th:each="chart_session :${chart_sessions}">
+                <td th:text="${chart_session.getSessionId()}"></td>
+                <td th:text="${chart_session.getPrincipal().getUsername()}"></td>
+                <td th:text="${chart_session.getLastRequest()}"></td>
+                <td> <a th:href="@{'/exit_user/'+${chart_session.getSessionId()}}">Закончить сессию</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br/>
 <div>
 <a th:href="@{/}"> Вернуться на главную страницу>> </a>
 </div>
