@@ -27,12 +27,12 @@
 <br>
 <br>
 <div>
-    <form th:action="@{/messages}" method="post" th:object="${message}">
+    <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">
         <div>
             <label> Сообщение: <input type="text" th:field="*{text}"> </label>
         </div>
         <div>
-            <label> Прикрепить файл: <input type="file" name="file_name"> </label>
+            <label> Прикрепить файл: <input type="file" name="file"> </label>
         </div>
         <button type="submit"> Добавить </button>
     </form>
