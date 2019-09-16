@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 public class MessageController {
@@ -53,9 +54,11 @@ public class MessageController {
             {
                 dir.mkdir();
             }
-            String fileName = file.getOriginalFilename();
-            file.transferTo(new File(mainProperties.getUploadPath() + fileName));
+
+            String fileName =  mainProperties.getUploadPath() + UUID.randomUUID().toString() + "." + file.getOriginalFilename();
+            file.transferTo(new File(fileName));
             message.setFileName(fileName);
+
         }
         messageService.saveMessage(message);
 

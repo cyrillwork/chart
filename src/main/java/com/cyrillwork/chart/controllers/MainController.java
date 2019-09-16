@@ -1,24 +1,21 @@
 package com.cyrillwork.chart.controllers;
 
 import com.cyrillwork.chart.models.User;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
 
 @Controller
+@Slf4j
 public class MainController {
     @Autowired
     private HttpServletRequest request;
@@ -43,7 +40,8 @@ public class MainController {
 
         HttpSession session = request.getSession(false);
 
-        System.out.println("session=" + session);
+        //System.out.println("session=" + session);
+        log.info("session=" + session);
 
         if(session == null)
         {

@@ -46,6 +46,7 @@ public class Message
         {
             return "";
         }
-        return fileName;
+
+        return fileName.substring(fileName.indexOf('.') + 1);
     }
 }
