@@ -69,6 +69,7 @@ public class MessageController {
     public void prepareModel(Model model){
         model.addAttribute("all_messages", messageService.findAllMessages());
         model.addAttribute("message", new Message());
+        model.addAttribute("upload_path", mainProperties.getUploadPath());
     }
 
 }
