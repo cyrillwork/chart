@@ -1,9 +1,8 @@
 package com.cyrillwork.chart.controllers;
 
 import com.cyrillwork.chart.models.User;
+import com.cyrillwork.chart.properties.MainProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -19,9 +18,20 @@ import javax.servlet.http.HttpSession;
 public class MainController {
     @Autowired
     private HttpServletRequest request;
+
+    @Autowired
+    private MainProperties mainProperties;
+
 //    @Autowired
 //    private ServletContext servletContext;
-    private static final Logger LOG = LoggerFactory.getLogger(MainController.class);
+
+    @GetMapping("/login")
+    public String showLogin(Model model)
+    {
+        log.info(mainProperties.getGreeting());
+        model.addAttribute("greeting", mainProperties.getGreeting());
+        return "login";
+    }
 
     @GetMapping("/")
     public String showMain(
@@ -45,12 +55,14 @@ public class MainController {
 
         if(session == null)
         {
-            LOG.info("Create new session");
+            log.info("Create new session");
             session = request.getSession(true);
         }
 
         model.addAttribute("login_user", user);
-        return "index.html";
+        model.addAttribute("greeting", mainProperties.getGreeting());
+
+        return "index";
     }
 
 }

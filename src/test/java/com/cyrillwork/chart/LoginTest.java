@@ -1,6 +1,7 @@
 package com.cyrillwork.chart;
 
 
+import com.cyrillwork.chart.properties.MainProperties;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,12 +28,15 @@ public class LoginTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private MainProperties mainProperties;
+
     @Test
     public void testShowLogin() throws Exception{
         this.mockMvc.perform(get("/login"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(CoreMatchers.containsString("Вход в систему")));
+                .andExpect(content().string(CoreMatchers.containsString(mainProperties.getGreeting())));
     }
 
     @Test
