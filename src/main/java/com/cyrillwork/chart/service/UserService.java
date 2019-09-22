@@ -109,7 +109,13 @@ public class UserService implements UserDetailsService {
     }
 
     public User activateUser(String code) {
-        return userRepository.findUserByActivationCode(code);
+        User user = userRepository.findUserByActivationCode(code);
+        if(user != null)
+        {
+            user.setActivationCode("");
+            userRepository.save(user);
+        }
+        return user;
     }
 
     public boolean existOneMoreUser(User user) {
