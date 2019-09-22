@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +36,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="package.json" />
         <option value="Arquillian JUnit Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -219,7 +227,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@56de816" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4ae24884" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -281,7 +289,8 @@
       <workItem from="1569043867524" duration="167000" />
       <workItem from="1569085164461" duration="2419000" />
       <workItem from="1569089154104" duration="620000" />
-      <workItem from="1569128855146" duration="14754000" />
+      <workItem from="1569128855146" duration="15230000" />
+      <workItem from="1569171108155" duration="13699000" />
     </task>
     <servers />
   </component>
@@ -303,5 +312,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/controllers/ProfileController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

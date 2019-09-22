@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .permitAll()
                     .loginProcessingUrl("/login")
-                    .failureUrl("/login.html?error=true")
+                    //.failureUrl("/login.html?error=true")
                 .and()
                     .rememberMe()
                 .and()
@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         //.sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
                         .invalidSessionUrl("/login")
                         .maximumSessions(1)
-                        //.maxSessionsPreventsLogin(true)
+                        .maxSessionsPreventsLogin(true)
                         .sessionRegistry(sessionRegistry());
     }
 

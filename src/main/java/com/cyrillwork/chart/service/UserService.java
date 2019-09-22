@@ -84,13 +84,20 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean updateUser(User user){
+        return updateUser(user, false);
+    }
+
+    public boolean updateUser(User user, boolean isProfile){
         User db_user = userRepository.findUserById(user.getId());
         if( db_user ==  null)
         {
             return false;
         }
         db_user.setUsername(user.getUsername());
-        db_user.setRoles(user.getRoles());
+
+        if(!isProfile)
+            db_user.setRoles(user.getRoles());
+
         db_user.setEmail(user.getEmail());
         db_user.setActive(user.isActive());
 

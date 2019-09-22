@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="common::header"></div>
+    <title>Profile page</title>
+</head>
+<body>
+
+<h1>Профиль пользователя</h1>
+
+<div th:insert="common::registrashion (profile,user,false)"></div>
+
+<br/>
+
+<div>
+    <a th:href="@{/}"> Вернуться на главную страницу>> </a>
+</div>
+
+<br/> <br/>
+<div th:insert="common::copy"></div>
+
+</body>
+</html>

@@ -14,15 +14,17 @@
 
 <h1>  <div id="login_user" th:text="'Приветствую ' + ${login_user.username}">  </div> </h1>
 
-<br>
+<br/>
 <div> <a th:href="@{/messages}"> <b> Начать </b> </a> </div>
-<br>
+<br/>
+<div> <a th:href="@{/profile}"> <b> Профиль </b> </a> </div>
+<br/>
 
 <div th:if="${login_user.isAdmin()} == true">
-    <div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей (только для ADMIN пользователей) </b> </a> </div>
+    <div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей </b> </a> </div>
 </div>
 
-<br> <br> <br>
+<br/> <br/> <br/>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Выйти"/>
