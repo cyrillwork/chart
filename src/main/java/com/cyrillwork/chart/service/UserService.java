@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import java.util.UUID;
 
 @Service
@@ -43,8 +44,7 @@ public class UserService implements UserDetailsService {
 
     public User findUserById(Long id) { return userRepository.findUserById(id); }
 
-    public boolean saveUser(User user, boolean hasMailCheck)
-    {
+    public boolean saveUser(User user, boolean hasMailCheck) {
         if( userRepository.findUserById(user.getId()) != null)
         {
             return false;
@@ -59,13 +59,23 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
 
         if(hasMailCheck) {
-            String message = String.format("Привет %s!\n" +
-                            "Добро пожаловать в простой чат. Для активации пользователя перейдите по ссылке http://%s:%s/activate/%s",
-                    user.getUsername(),
+
+            String href_str = String.format("http://%s:%s/activate/%s",
                     mainProperties.getHost(),
                     mainProperties.getPort(),
-                    user.getActivationCode()
+                    user.getActivationCode() );
+
+            String href_full = String.format("<a href=\"%s\" target=\"_blank\" rel=\"noopener\">%s</a>",
+                    href_str, href_str);
+
+            String message = String.format("Привет %s!\n" +
+                            "Добро пожаловать в простой чат."+
+                            "Для активации пользователя перейдите по ссылке %s",
+                    user.getUsername(),
+                    href_full
             );
+
+            //<a href="https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE" target="_blank" rel="noopener">https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE</a>
 
             mailService.send(user.getEmail(), "Activation code", message);
         }
@@ -98,13 +108,8 @@ public class UserService implements UserDetailsService {
         return result;
     }
 
-    public boolean activateUser(String code) {
-        User user = userRepository.findUserByActivationCode(code);
-        if(user == null)
-        {
-            return false;
-        }
-        return true;
+    public User activateUser(String code) {
+        return userRepository.findUserByActivationCode(code);
     }
 
     public boolean existOneMoreUser(User user) {

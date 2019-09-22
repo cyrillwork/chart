@@ -8,10 +8,50 @@
 </div>
 
 <div th:fragment="copy">
-    &#169; 2019 made by Cyrill
+    &#169; 2019 made by cyrillwork
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </div>
+
+<div th:fragment="registrashion (name, user)">
+<form method="post" th:action="@{'/' + ${name}}" th:object="${user}">
+    <input type="hidden" th:field="*{id}">
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Пожалуйста, исправьте ошибки
+        </span>
+    </div>
+    <div>
+        <label> Пользователь: <input type="text" th:field="*{username}"/> </label>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('username')}"
+              th:errors="*{username}"> Ошибка ввода пользователя </span>
+    </div>
+
+    <div>
+        <label> Придумайте пароль: <input type="password" th:field="*{password}"/> </label>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}"> Ошибка ввода пароля </span>
+    </div>
+
+    <div>
+        <label> Повторите пароль: <input type="password" id="passwordConfirm" name="passwordConfirm" th:value="${passwordConfirm}"/> </label>
+        <span th:text="${password_not_confirm}"></span>
+    </div>
+
+    <div>
+        <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
+    </div>
+
+    <br>
+    <div>
+        <input type="submit" value="Ввод"/>
+    </div>
+</form>
+</div>
+
 </body>
 </html>

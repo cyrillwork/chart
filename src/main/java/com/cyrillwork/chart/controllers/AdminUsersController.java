@@ -79,6 +79,7 @@ public class AdminUsersController
         else {
             user.setRole(Role.USER);
         }
+
         user.setActive(true);
         userService.saveUser(user, false);
 

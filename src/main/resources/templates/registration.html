@@ -9,45 +9,10 @@
 <body>
 <h1>Регистрация нового пользователя</h1>
 <br>
-<b><div th:text="${user_exist}"></b>
-</div>
 
-<form method="post" th:action="@{/registration}" th:object="${user}">
-    <input type="hidden" th:field="*{id}">
+<b><div th:text="${user_exist}"></div></b>
 
-    <div th:if="${#fields.hasErrors()}">
-        <span class="validationError">
-            Пожалуйста, исправьте ошибки
-        </span>
-    </div>
-    <div>
-        <label> Пользователь: <input type="text" th:field="*{username}"/> </label>
-        <span class="validationError"
-              th:if="${#fields.hasErrors('username')}"
-              th:errors="*{username}"> Ошибка ввода пользователя </span>
-    </div>
-
-    <div>
-        <label> Придумайте пароль: <input type="password" th:field="*{password}"/> </label>
-        <span class="validationError"
-              th:if="${#fields.hasErrors('password')}"
-              th:errors="*{password}"> Ошибка ввода пароля </span>
-    </div>
-
-    <div>
-        <label> Повторите пароль: <input type="password" id="passwordConfirm" name="passwordConfirm" th:value="${passwordConfirm}"/> </label>
-        <span th:text="${password_not_confirm}"></span>
-    </div>
-
-    <div>
-        <label> Элк.почта: <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
-    </div>
-
-    <br>
-    <div>
-        <input type="submit" value="Ввод"/>
-    </div>
-</form>
+<div th:insert="common::registrashion (registration,user)"></div>
 
 <br/> <br/>
 <div th:insert="common::copy"></div>

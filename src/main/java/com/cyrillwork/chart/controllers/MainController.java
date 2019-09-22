@@ -16,14 +16,9 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Slf4j
 public class MainController {
-    @Autowired
-    private HttpServletRequest request;
 
     @Autowired
     private MainProperties mainProperties;
-
-//    @Autowired
-//    private ServletContext servletContext;
 
     @GetMapping("/login")
     public String showLogin(Model model)
@@ -36,29 +31,8 @@ public class MainController {
     @GetMapping("/")
     public String showMain(
             @AuthenticationPrincipal User user,
-            Model model,
-            HttpServletRequest request,
-            HttpServletResponse response)
+            Model model)
     {
-//        ApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-//        SessionRegistry sReg = (SessionRegistry) ac.getBean("sessionRegistry");
-//
-//        if(sReg != null) {
-//            for (Object principal : sReg.getAllPrincipals())
-//                System.out.println("Principal: " + principal.toString());
-//        }
-
-        HttpSession session = request.getSession(false);
-
-        //System.out.println("session=" + session);
-        log.info("session=" + session);
-
-        if(session == null)
-        {
-            log.info("Create new session");
-            session = request.getSession(true);
-        }
-
         model.addAttribute("login_user", user);
         model.addAttribute("greeting", mainProperties.getGreeting());
 

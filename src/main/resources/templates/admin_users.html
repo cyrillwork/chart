@@ -61,6 +61,7 @@
                     <!--<th> Пароль </th>-->
                     <th> Элк.почта </th>
                     <th> Роль </th>
+                    <th> Активирован </th>
                 </tr>
                 </thead>
                 <tr id="users-table" th:each="user :${users}">
@@ -68,6 +69,7 @@
                     <!-- <td th:text="${user.password}"></td> -->
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.roles}"></td>
+                    <td th:text="${user.getStateActivation() ? 'Да' : 'Нет'}">
                     <td> <a th:href="@{'/user_edit/'+${user.id}}">Редактировать</a></td>
                     <td> <a th:href="@{'/del_user/'+${user.id}}">Удалить</a></td>
                 </tr>

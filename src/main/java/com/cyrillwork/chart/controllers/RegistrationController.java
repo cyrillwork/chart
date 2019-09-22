@@ -56,9 +56,10 @@ public class RegistrationController
 
     @GetMapping("/activate/{code}")
     public String activate(Model model, @PathVariable String code){
-        boolean isActivated = userService.activateUser(code);
-        if(isActivated){
-            model.addAttribute("activate_mess", "Пользовталь активирован");
+        User user = userService.activateUser(code);
+        if(user != null){
+            model.addAttribute("activate_mess", String.format("Пользовталь %s активирован",
+                    user.getUsername()) );
         } else {
             model.addAttribute("activate_mess", "Пользователь не активирован");
         }

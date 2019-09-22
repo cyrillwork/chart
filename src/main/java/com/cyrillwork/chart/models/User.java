@@ -86,6 +86,16 @@ public class User implements UserDetails {
         return username;
     }
 
+    public boolean getStateActivation(){
+        boolean result = false;
+
+        if((activationCode == null)||(activationCode.equals("")))
+            result = true;
+        else
+            result = false;
+
+        return result;
+    }
 
     public void setRole(Role role)
     {
@@ -133,6 +143,5 @@ public class User implements UserDetails {
 
         return roles.toString().equals("[" + name + "]");
     }
-
 
 }
