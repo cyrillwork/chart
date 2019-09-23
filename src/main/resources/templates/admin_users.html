@@ -69,7 +69,7 @@
                     <!-- <td th:text="${user.password}"></td> -->
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.roles}"></td>
-                    <td th:text="${user.getStateActivation() ? 'Да' : 'Нет'}">
+                    <td th:text="${user.getStateActivation() ? 'Да' : 'Нет'}"></td>
                     <td> <a th:href="@{'/user_edit/'+${user.id}}">Редактировать</a></td>
                     <td> <a th:href="@{'/del_user/'+${user.id}}">Удалить</a></td>
                 </tr>
