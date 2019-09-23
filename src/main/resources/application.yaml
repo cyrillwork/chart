@@ -29,7 +29,7 @@ spring:
 chart:
   server:
     host: cyrillworkchart.herokuapp.com
-    port: 1234
+    port: ${process.env.PORT:1234}
     greeting: Вход в простой чат
 
   mail:
@@ -46,7 +46,7 @@ chart:
 
 server:
   host: cyrillworkchart.herokuapp.com
-  port: 1234
+  port: ${process.env.PORT:1234}
 
 
 logging.level.com.cyrillwork.chart: DEBUG
