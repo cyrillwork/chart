@@ -59,25 +59,7 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
 
         if(hasMailCheck) {
-
-            String href_str = String.format("http://%s:%s/activate/%s",
-                    mainProperties.getHost(),
-                    mainProperties.getPort(),
-                    user.getActivationCode() );
-
-            String href_full = String.format("<a href=\"%s\" target=\"_blank\" rel=\"noopener\">%s</a>",
-                    href_str, href_str);
-
-            String message = String.format("Привет %s!\n" +
-                            "Добро пожаловать в простой чат."+
-                            "Для активации пользователя перейдите по ссылке %s",
-                    user.getUsername(),
-                    href_full
-            );
-
-            //<a href="https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE" target="_blank" rel="noopener">https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE</a>
-
-            mailService.send(user.getEmail(), "Activation code", message);
+            mailService.send(user);
         }
 
         return true;

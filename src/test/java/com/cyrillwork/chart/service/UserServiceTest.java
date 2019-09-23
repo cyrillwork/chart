@@ -36,23 +36,20 @@ public class UserServiceTest {
 
     @Test
     public void saveUserWithMailCheck() {
-        boolean mailCheck = true;
+
         User user = new User();
 
         user.setEmail("user@mail.com");
 
-        Assert.assertTrue(userService.saveUser(user, mailCheck));
+        Assert.assertTrue(userService.saveUser(user, true));
         Assert.assertNotNull(user.getActivationCode());
         Assert.assertTrue(CoreMatchers.is(user.getRoles()).matches(Collections.singleton(Role.USER)));
 
         Mockito.verify(userRepository, Mockito.times(1)).save(user);
 
-        Mockito.verify(mailService, Mockito.times(1)).send
-                (
-                        ArgumentMatchers.eq(user.getEmail()),
-                        ArgumentMatchers.anyString(),
-                        ArgumentMatchers.contains("Добро пожаловать")
-                );
+        Mockito.verify(mailService, Mockito.times(1)).send(
+                        ArgumentMatchers.eq(user)
+        );
     }
 
     @Test
