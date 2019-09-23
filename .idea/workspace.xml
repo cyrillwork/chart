@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="994d38a8-62cb-423c-afcb-684e6b0e5b33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyrillwork/chart/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/AdminUsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cyrillwork/chart/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/create-users-after.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/create-users-after.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/create-users-before.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/create-users-before.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +111,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.All in chart">
     <configuration name="AdminUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
@@ -122,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminUsersTest.mainPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminUsersTest.userListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
@@ -132,8 +137,16 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
       <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.AdminUsersTest" />
-      <option name="METHOD_NAME" value="mainPageTest" />
+      <option name="METHOD_NAME" value="userListTest" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in chart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chart" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,32 +166,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.testInputLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.controllers.*" />
+          <option name="PATTERN" value="com.cyrillwork.chart.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.controllers.RegistrationControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chart" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cyrillwork.chart.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cyrillwork.chart.service" />
-      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.cyrillwork.chart" />
+      <option name="MAIN_CLASS_NAME" value="com.cyrillwork.chart.LoginTest" />
+      <option name="METHOD_NAME" value="testInputLogin" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.RegistrationControllerTest" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.AdminUsersTest.mainPageTest" />
+        <item itemvalue="JUnit.All in chart" />
         <item itemvalue="JUnit.AdminUsersTest" />
+        <item itemvalue="JUnit.AdminUsersTest.userListTest" />
+        <item itemvalue="JUnit.LoginTest.testInputLogin" />
+        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +217,12 @@
       <serviceView>
         <option name="contentProportion" value="0.11958875" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4875d8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -280,7 +284,7 @@
       <workItem from="1569089154104" duration="620000" />
       <workItem from="1569128855146" duration="15230000" />
       <workItem from="1569171108155" duration="13699000" />
-      <workItem from="1569227064618" duration="1256000" />
+      <workItem from="1569227064618" duration="7152000" />
     </task>
     <servers />
   </component>

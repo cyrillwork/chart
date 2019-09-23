@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/db_chart_test
+    username: develop
+    password: 123456
+
+  jpa:
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+    hibernate.ddl-auto: validate
+    generate-ddl: false
+    show-sql: false
+
+  session.jdbc:
+    #remember me
+    initialize-schema: always
+    # Name of the database table used to store sessions.
+    table-name: SPRING_SESSION
+
+server:
+  host: localhost
+  port: 8080
+
+chart:
+  server:
+    host: localhost
+    port: 8080
+
+  mail:
+    host: smtp.yandex.ru
+    username: chartchart@yandex.ru
+    password: qwerasdfzxcv
+    port: 465
+    protocol: smtps
+    debug: true
+
