@@ -13,4 +13,3 @@ mvn -X clean package
 
 # run
 java -jar target/chart-1.0-SNAPSHOT.jar
-
