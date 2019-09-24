@@ -17,4 +17,19 @@ public class MessageService {
     public void saveMessage(Message message) {
         messageRepository.save(message);
     }
+
+    public String FindFileByCode(String code)
+    {
+        String filename = null;
+        Iterable<Message> messages = messageRepository.findAll();
+
+        for (Message message: messages) {
+            if(message.getFileName().indexOf(code) != -1)
+            {
+                filename = message.getFileName().substring(message.getFileName().lastIndexOf('/') + 1);
+                break;
+            }
+        }
+        return filename;
+    }
 }

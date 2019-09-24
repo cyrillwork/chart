@@ -16,7 +16,7 @@
             <tr th:each="mess :${all_messages}">
                 <td th:text="${mess.text}"></td>
                 <!-- <td th:text="${mess.getFileNameString()}"></td>-->
-                <td> <a download="logo" th:href="@{'file:/' + ${upload_path} }">файл</a></td>
+                <td> <a download="logo" th:href="@{'/messages/' +  ${mess.getFileNameCodeString()} }">файл</a></td>
                     <span>
                         <td th:text="${mess.user.username}"></td>
                         <td th:text="${mess.createAt}"></td>

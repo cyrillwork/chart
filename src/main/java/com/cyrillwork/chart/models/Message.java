@@ -40,13 +40,22 @@ public class Message
 
     private String fileName;
 
-    public String getFileNameString()
+    public String getFileNameCodeString()
     {
         if(fileName == null)
         {
             return "";
         }
-
-        return fileName.substring(fileName.indexOf('.') + 1);
+        return fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('.') );
     }
+
+    public String getFullFileNameString()
+    {
+        if(fileName == null)
+        {
+            return "";
+        }
+        return fileName;
+    }
+
 }
