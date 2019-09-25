@@ -42,9 +42,9 @@ public class MailService {
 
     public void send(User user){
 
-        String href_str = String.format("http://%s:%s/activate/%s",
+        String href_str = String.format("http://%s%s/activate/%s",
                 mainProperties.getHost(),
-                mainProperties.getPort(),
+                mainProperties.isLocalHost() ? (':' + mainProperties.getPort()) : "",
                 user.getActivationCode() );
 
         String href_full = String.format("<a href=\"%s\" target=\"_blank\" rel=\"noopener\">%s</a>",

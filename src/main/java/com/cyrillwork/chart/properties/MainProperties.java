@@ -21,4 +21,8 @@ public class MainProperties {
     @Value("${chart.upload.path}")
     private String uploadPath;
 
+    public boolean isLocalHost(){
+        return host.equals("localhost");
+    }
+
 }
