@@ -60,6 +60,5 @@ public class MailService {
         //<a href="https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE" target="_blank" rel="noopener">https://login.qt.io/confirm/aC6uV1dDmY7QqJmcwETuuasCOTHhNRvE</a>
         send(user.getEmail(), "Activation code " + user.getUsername(), message);
     }
-
-
+    
 }
