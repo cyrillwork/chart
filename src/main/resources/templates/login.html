@@ -3,42 +3,63 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <div th:insert="common::header"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption != ''){
+                    window.location.replace('login?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
+    <!--<script src="internationalization.js"></script>-->
+
     <title>Login page</title>
 </head>
 
 <body>
-    <h1><div th:utext="${greeting}"></div></h1>
+    <h1><div th:utext="#{greeting}"></div></h1>
     <br>
     <div class="container">
         <p id="activate_mess" th:text="${activate_mess}"></p>
     </div>
 
-    <div th:if="${param.error}">
-        Неправильное имя пользователя или пароль
-    </div>
-    <div th:if="${param.logout}">
-        Вы вышли из системы
-    </div>
+    <div th:if="${param.error}" th:utext="#{login.error_user}"></div>
+
+    <div th:if="${param.logout}" th:utext="#{login.logout}"></div>
+
     <br>
         <form th:action="@{/login}" method="post">
             <div>
-                <label> Пользователь: <input type="text" name="username"/> </label>
+                <label> <span th:utext="#{login.user}+':'"></span> <input type="text" name="username"/> </label>
             </div>
             <div>
-                <label> Пароль: <input type="password" name="password"/> </label>
+                <label> <span th:utext="#{login.password}+':'"></span> <input type="password" name="password"/> </label>
             </div>
 
             <div>
-                <label> Запомнить меня <input id="remember" type="checkbox" name="remember-me" checked="true"/> </label>
+                <label> <span th:utext="#{login.remember}+':'"></span> <input id="remember" type="checkbox" name="remember-me" checked="true"/> </label>
             </div>
             <br/>
             <div>
-                <input type="submit" value="Войти"/>
+                <input type="submit" value="Sign In" th:value="#{login.sign_in}" />
             </div>
         </form>
+    <br/>
+
+    <span th:text="#{lang.change}"></span>:
+    <select id="locales">
+        <option value=""></option>
+        <option value="ru" th:text="#{lang.russ}"></option>
+        <option value="us" th:text="#{lang.eng}"></option>
+    </select>
 
     <br/> <br/>
-    <a th:href="@{/registration}"> Регистрация нового пользователя>> </a> </div>
+    <a th:href="@{/registration}"> <span th:utext="#{login.registration}"></span> </a> </div>
+
     <br/> <br/>
     <div th:insert="common::copy"></div>
 

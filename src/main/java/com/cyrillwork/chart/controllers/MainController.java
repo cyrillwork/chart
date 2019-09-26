@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,11 +21,11 @@ public class MainController {
     @Autowired
     private MainProperties mainProperties;
 
-    @GetMapping("/login")
-    public String showLogin(Model model)
+    @GetMapping("/login{lang}")
+    public String showLogin(@PathVariable String lang, Model model)
     {
-        log.info(mainProperties.getGreeting());
-        model.addAttribute("greeting", mainProperties.getGreeting());
+        //log.info(mainProperties.getGreeting());
+        //model.addAttribute("greeting", mainProperties.getGreeting());
         return "login";
     }
 
@@ -34,7 +35,7 @@ public class MainController {
             Model model)
     {
         model.addAttribute("login_user", user);
-        model.addAttribute("greeting", mainProperties.getGreeting());
+        //model.addAttribute("greeting", mainProperties.getGreeting());
 
         return "index";
     }

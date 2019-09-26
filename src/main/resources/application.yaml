@@ -32,7 +32,7 @@ chart:
   server:
     host: cyrillworkchart.herokuapp.com
     port: ${process.env.PORT:1234}
-    greeting: Вход в простой чат
+
 
   mail:
     host: smtp.yandex.ru

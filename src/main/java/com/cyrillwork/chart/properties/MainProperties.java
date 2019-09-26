@@ -15,8 +15,8 @@ public class MainProperties {
     @Value("${chart.server.port}")
     private Integer port;
 
-    @Value("${chart.server.greeting}")
-    private String greeting;
+    //@Value("${chart.server.greeting}")
+    //private String greeting;
 
     @Value("${chart.upload.path}")
     private String uploadPath;
