@@ -1,5 +1,6 @@
 # chart
 Simple chart (JAVA 1.8, Spring-boot2, PostgreSQL, maven)
+Internalization english and russian
 
 # usage
 For work you need PostgreSQL. 
