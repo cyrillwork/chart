@@ -7,7 +7,9 @@
     <title>Login page</title>
 </head>
 <body>
-<h1>Регистрация нового пользователя</h1>
+<div class="container">
+
+    <h1><span th:utext="#{registration.greeting}"></span></h1>
 <br>
 
 <b><div th:text="${user_exist}"></div></b>
@@ -17,6 +19,7 @@
 <br/> <br/>
 <div th:insert="common::copy"></div>
 
+</div>
 </body>
 
 </html>

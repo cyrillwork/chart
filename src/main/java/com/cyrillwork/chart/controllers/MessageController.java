@@ -63,7 +63,7 @@ public class MessageController {
 
         message.setUser(user);
 
-        if(file != null)
+        if((file != null) && (!file.getOriginalFilename().isEmpty()))
         {
             File dir = new File(mainProperties.getUploadPath());
             if(!dir.exists())

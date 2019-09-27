@@ -58,4 +58,8 @@ public class Message
         return fileName;
     }
 
+    public boolean hasFile(){
+        return !((fileName == null)||(fileName.equals("")));
+    }
+
 }

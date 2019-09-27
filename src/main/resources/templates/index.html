@@ -9,29 +9,38 @@
 </head>
 
 <body>
+<div class="container">
 
-<h1>Простой чат</h1>
+<h1> <span th:utext="#{index.greeting}"></span></h1>
 
 <h1>  <div id="login_user" th:text="'Приветствую ' + ${login_user.username}">  </div> </h1>
 
 <br/>
-<div> <a th:href="@{/messages}"> <b> Начать </b> </a> </div>
+<div> <a th:href="@{/messages}"> <span th:utext="#{index.begin}"></span> </a> </div>
 <br/>
-<div> <a th:href="@{/profile}"> <b> Профиль </b> </a> </div>
+<div> <a th:href="@{/profile}"> <span th:utext="#{index.profile}"></span> </a> </div>
 <br/>
 
 <div th:if="${login_user.isAdmin()} == true">
-    <div> <a th:href="@{/admin_users}"> <b> Администрирование пользователей </b> </a> </div>
+    <div> <a th:href="@{/admin_users}"> <span th:utext="#{index.admin}"></span> </a> </div>
 </div>
 
 <br/> <br/> <br/>
 
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Выйти"/>
-</form>
+    <div class="container">
+        <!--<input type="submit" value="Sign In" th:value="#{login.sign_in}" />-->
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-primary" type="submit"> <span th:utext="#{index.logout}"></span></button>
+        </form>
+    </div>
+
+
+
 
 <br/> <br/>
 <div th:insert="common::copy"></div>
+
+</div>
 
 </body>
 </html>

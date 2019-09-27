@@ -11,39 +11,53 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <table style="color: black" id="each">
-            <tr th:each="mess :${all_messages}">
-                <td th:text="${mess.text}"></td>
-                <!-- <td th:text="${mess.getFileNameString()}"></td>-->
-                <td> <a download="logo" th:href="@{'/messages/' +  ${mess.getFileNameCodeString()} }">файл</a></td>
-                    <span>
-                        <td th:text="${mess.user.username}"></td>
-                        <td th:text="${mess.createAt}"></td>
-                    </span>
-            </tr>
-        </table>
+
+    <div class="card-columns">
+        <ul th:each="mess :${all_messages}">
+            <div class="card my-3">
+                <li>
+                    <div class="m-2">
+                        <span th:utext="${mess.text}"></span>
+
+                        <dev th:if="${mess.hasFile()}">
+                            <i><a download="logo" th:href="@{'/messages/' +  ${mess.getFileNameCodeString()} }">файл</a></i>
+                        </dev>
+
+                    </div>
+
+                    <div class="card-footer text-muted">
+                        <span th:text="${mess.user.username}"> </span>
+                        <span th:text="${mess.createAt}"> </span>
+                    </div>
+                </li>
+            </div>
+        </ul>
     </div>
-</div>
 
-<br>
-<br>
-<div>
-    <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">
-        <div>
-            <label> Сообщение: <input type="text" th:field="*{text}"> </label>
-        </div>
-        <div>
-            <label> Прикрепить файл: <input type="file" name="file"> </label>
-        </div>
-        <button type="submit"> Добавить </button>
-    </form>
-</div>
-<br/>
-<div> <a th:href="@{/}"> <b> Вернутся на главную страницу </b> </a> </div>
+    <br>
+        <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">
+            <div class="form-group">
+                <input type="text" class="form-control" th:field="*{text}" placeholder="Введите сообщение"/>
+            </div>
 
-<br/> <br/>
-<div th:insert="common::copy"></div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" name="file" id="customFile"/>
+                    <label class="custom-file-label" for="customFile">Выбирите файл</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"> Добавить </button>
+            </div>
+        </form>
+    <br/>
+
+    <div> <a th:href="@{/}"> <b> Вернутся на главную страницу </b> </a> </div>
+
+    <br/> <br/>
+    <div th:insert="common::copy"></div>
+
+</div>
 
 </body>
 </html>
