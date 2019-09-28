@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Рекдактирование данных пользователя</title>
+    <div th:insert="common::header"></div>
 </head>
 <body>
 <div class="container">
@@ -23,7 +24,6 @@
                   th:if="${#fields.hasErrors('username')}"
                   th:errors="*{username}"> Ошибка ввода пользователя
             </span>
-
         </div>
 
         <div>
@@ -63,7 +63,6 @@
 </div>
 <br/> <br/>
 <div th:insert="common::copy"></div>
-
 </div>
 
 </body>

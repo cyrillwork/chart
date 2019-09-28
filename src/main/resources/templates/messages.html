@@ -36,19 +36,32 @@
 
     <br>
         <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">
+ <!--
             <div class="form-group">
                 <input type="text" class="form-control" th:field="*{text}" placeholder="Введите сообщение"/>
             </div>
+-->
+            <div class="form-group">
+                <textarea class="form-control" th:field="*{text}" id="textArea"
+                          th:placeholder="#{messages.message}"></textarea>
+            </div>
+<!--
+            <div class="custom-file">
+                <input type="file" name="file" id="customFile"/>
+                <label class="custom-file-label" for="customFile">Выбирите файл</label>
+            </div>
+-->
 
             <div class="form-group">
                 <div class="custom-file">
-                    <input type="file" name="file" id="customFile"/>
-                    <label class="custom-file-label" for="customFile">Выбирите файл</label>
+                    <input type="file" name="file" th:placeholder="#{messages.choose.file}"/>
                 </div>
             </div>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary"> Добавить </button>
             </div>
+
         </form>
     <br/>
 
