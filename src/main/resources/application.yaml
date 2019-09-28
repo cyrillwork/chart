@@ -1,4 +1,3 @@
-
 spring:
   application:
     name: chart
@@ -44,9 +43,12 @@ chart:
   upload:
     path: /tmp/uploads/
 
+  recaptcha: 6Lf13roUAAAAAOhgqFhx1BASz7KlnCagl7TGdHdT
+
+  recaptcha.url: https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s
+
 #windows
 #    path: D:\uploads\
-
 
 server:
   host: cyrillworkchart.herokuapp.com

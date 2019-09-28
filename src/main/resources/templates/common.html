@@ -5,62 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <script src="https://www.google.com/recaptcha/api.js" async="true" defer="true"></script>
 </div>
 
 <div th:fragment="copy">
-    &#169; 2019 made by cyrillwork
+    &#169; 2019 made by cyrill
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </div>
 
 <div th:fragment="registrashion (name, user, registr)">
-    <div class="form-group">
 
-        <form method="post" th:action="@{'/' + ${name}}" th:object="${user}">
-            <input type="hidden" th:field="*{id}">
+    <form method="post" th:action="@{'/' + ${name}}" th:object="${user}">
+        <input type="hidden" th:field="*{id}">
 
-    <div th:if="${registr}">
-        <div th:if="${#fields.hasErrors()}">
-            <span class="validationError">
-                Пожалуйста, исправьте ошибки
-            </span>
+        <div th:if="${registr}">
+            <div th:if="${#fields.hasErrors()}">
+                <span class="validationError" th:utext="#{common.error_exist}"></span>
+            </div>
+            <div th:if="${captcha_error}">
+                <span th:utext="#{common.error_captcha}"></span>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <label> <span th:utext="#{login.user} + ':'"></span> <input type="text" th:field="*{username}"/> </label>
-        <span class="validationError"
+        <div class="form-group">
+            <label> <span th:utext="#{login.user} + ':'"></span>
+                <input type="text" th:field="*{username}"/> </label>
+            <span class="validationError"
               th:if="${#fields.hasErrors('username')}"
-              th:errors="*{username}"> Ошибка ввода пользователя </span>
-    </div>
+              th:errors="*{username}" th:utext="#{common.error_user}"> </span>
+        </div>
 
-    <div th:if="${registr}">
-        <label> <span th:utext="#{registration.password}"></span> <input type="password" th:field="*{password}"/> </label>
-        <span class="validationError"
+        <div th:if="${registr}" class="form-group">
+            <label> <span th:utext="#{registration.password}"></span> <input type="password" th:field="*{password}"/> </label>
+            <span class="validationError"
               th:if="${#fields.hasErrors('password')}"
-              th:errors="*{password}"> Ошибка ввода пароля </span>
-    </div>
+              th:errors="*{password}" th:utext="#{common.error_password}"> </span>
+        </div>
 
-    <div th:if="${registr}">
-        <label> <span th:utext="#{registration.confirm.password}"></span> <input type="password" id="passwordConfirm" name="passwordConfirm" th:value="${passwordConfirm}"/> </label>
-        <span th:text="${password_not_confirm}"></span>
-    </div>
+        <div th:if="${registr}" class="form-group">
+            <label> <span th:utext="#{registration.confirm.password}"></span> <input type="password" id="passwordConfirm" name="passwordConfirm" th:value="${passwordConfirm}"/> </label>
+            <span th:if="${password_not_confirm}" th:utext="#{common.error_password}"></span>
+        </div>
 
-    <div>
-        <label> <span th:utext="#{login.email} + ':'"></span> <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
-        <span class="validationError"
+        <div class="form-group">
+            <label> <span th:utext="#{login.email} + ':'"></span> <input type="email" th:field="*{email}" placeholder="some@some.com"/> </label>
+            <span class="validationError"
               th:if="${#fields.hasErrors('email')}"
-              th:errors="*{email}"> Ошибка ввода пароля </span>
-    </div>
-    <br>
+              th:errors="*{email}" th:utext="#{common.error_email}">  </span>
+        </div>
 
-    <div  class="form-group">
-        <button type="submit" class="btn btn-primary"> <span th:utext="#{registration.input}"></span> </button>
-    </div>
+        <div th:if="${registr}" class="form-group">
+            <div class="g-recaptcha" data-sitekey="6Lf13roUAAAAALRufUpWe7IzkcP-WYvrf6UBbwJc"></div>
+        </div>
+
+        <div  class="form-group">
+            <button type="submit" class="btn btn-primary"> <span th:utext="#{registration.input}"></span> </button>
+        </div>
 
     </form>
-    </div>
 </div>
 
 </body>

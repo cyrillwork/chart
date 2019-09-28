@@ -1,5 +1,6 @@
 package com.cyrillwork.chart.service;
 
+import com.cyrillwork.chart.controllers.ChartPasswordEncoder;
 import com.cyrillwork.chart.models.Role;
 import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.repos.UserRepository;
@@ -31,8 +32,7 @@ public class UserServiceTest {
     private MailService mailService;
 
     @MockBean
-    private PasswordEncoder passwordEncoder;
-
+    private ChartPasswordEncoder passwordEncoder;
 
     @Test
     public void saveUserWithMailCheck() {

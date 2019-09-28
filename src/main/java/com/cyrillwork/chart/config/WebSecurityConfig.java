@@ -3,6 +3,7 @@ package com.cyrillwork.chart.config;
 import com.cyrillwork.chart.controllers.ChartPasswordEncoder;
 import com.cyrillwork.chart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,12 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
-    private ChartPasswordEncoder passwordEncoder;
-
-//    @Bean
-//    public PasswordEncoder getPasswordEncoder(){
-//        return new BCryptPasswordEncoder(8);
-//    }
+    private ChartPasswordEncoder chartPasswordEncoder;
 
     @Override
     protected void configure(HttpSecurity http)
@@ -69,6 +65,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
-                .passwordEncoder(passwordEncoder);
+                .passwordEncoder(chartPasswordEncoder);
     }
 }
