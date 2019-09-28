@@ -36,7 +36,7 @@ public class LoginTest {
         this.mockMvc.perform(get("/login"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(CoreMatchers.containsString(/*mainProperties.getGreeting()*/"111")));
+                .andExpect(content().string(CoreMatchers.containsString("Вход в простой чат")));
     }
 
     @Test
