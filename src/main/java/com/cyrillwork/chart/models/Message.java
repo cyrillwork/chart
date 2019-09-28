@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.File;
 import java.util.Date;
 
 @Data
@@ -46,7 +47,10 @@ public class Message
         {
             return "";
         }
-        return fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('.') );
+        //String result = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('.') );
+        String result = fileName.substring(fileName.lastIndexOf(File.separator) + 1);
+
+        return result;
     }
 
     public String getFullFileNameString()

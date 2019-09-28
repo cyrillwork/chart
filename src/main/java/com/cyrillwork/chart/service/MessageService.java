@@ -5,6 +5,8 @@ import com.cyrillwork.chart.repos.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+
 @Service
 public class MessageService {
     @Autowired
@@ -24,9 +26,10 @@ public class MessageService {
         Iterable<Message> messages = messageRepository.findAll();
 
         for (Message message: messages) {
-            if(message.getFileName().indexOf(code) != -1)
+            String str1 = message.getFileName();
+            if(str1 != null && str1.indexOf(code) != -1)
             {
-                filename = message.getFileName().substring(message.getFileName().lastIndexOf('/') + 1);
+                filename = message.getFileName().substring(message.getFileName().lastIndexOf(File.separator) + 1);
                 break;
             }
         }

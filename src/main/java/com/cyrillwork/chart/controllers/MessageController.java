@@ -74,7 +74,6 @@ public class MessageController {
             String fileName =  mainProperties.getUploadPath() + UUID.randomUUID().toString() + "." + file.getOriginalFilename();
             file.transferTo(new File(fileName));
             message.setFileName(fileName);
-
         }
         messageService.saveMessage(message);
 
