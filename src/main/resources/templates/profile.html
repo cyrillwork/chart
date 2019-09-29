@@ -6,14 +6,14 @@
 </head>
 <body>
 
-<h1>Профиль пользователя</h1>
+<h1><span th:utext="#{profile.title}"></span></h1>
 
 <div th:insert="common::registrashion (profile,user,false)"></div>
 
 <br/>
 
 <div>
-    <a th:href="@{/}"> Вернуться на главную страницу>> </a>
+    <a th:href="@{/}"> <span th:utext="#{messages.back}"></span> </a>
 </div>
 
 <br/> <br/>

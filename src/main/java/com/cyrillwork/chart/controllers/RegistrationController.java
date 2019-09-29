@@ -73,7 +73,7 @@ public class RegistrationController
         }
 
         if(userService.existOneMoreUser(user)) {
-            model.addAttribute("user_exist", "Пользователь " + user.getUsername() + " уже существует");
+            model.addAttribute("user_exist", true);
             errorUser = true;
         }
 

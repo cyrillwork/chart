@@ -80,7 +80,6 @@ public class RegistrationControllerTest {
     @Test
     public void addUserExistUser()
     {
-
         user.setPassword("12345");
 
         Mockito.doReturn(true).

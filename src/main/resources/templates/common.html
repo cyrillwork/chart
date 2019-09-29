@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+
 <div th:fragment="header">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Bootstrap CSS -->
@@ -20,13 +21,14 @@
     <form method="post" th:action="@{'/' + ${name}}" th:object="${user}">
         <input type="hidden" th:field="*{id}">
 
-        <div th:if="${registr}">
-            <div th:if="${#fields.hasErrors()}">
-                <span class="validationError" th:utext="#{common.error_exist}"></span>
-            </div>
-            <div th:if="${captcha_error}">
-                <span th:utext="#{common.error_captcha}"></span>
-            </div>
+        <div th:if="${user_exist} or ${captcha_error}">
+            <span th:utext="#{common.error_exist}"></span>
+        </div>
+        <div th:if="${user_exist}">
+            <span th:utext="#{common.error_exist_user}"></span>
+        </div>
+        <div th:if="${captcha_error}">
+            <span th:utext="#{common.error_captcha}"></span>
         </div>
 
         <div class="form-group">
