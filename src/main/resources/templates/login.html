@@ -29,9 +29,7 @@
         <div class="container">
             <p id="activate_mess" th:text="${activate_mess}"></p>
         </div>
-
         <div th:if="${param.error}" th:utext="#{login.error_user}"></div>
-
         <div th:if="${param.logout}" th:utext="#{login.logout}"></div>
     </div>
 
