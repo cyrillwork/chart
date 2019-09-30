@@ -6,7 +6,6 @@ import com.cyrillwork.chart.properties.MainProperties;
 import com.cyrillwork.chart.service.ChartStorageService;
 import com.cyrillwork.chart.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +16,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.mail.Multipart;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -50,7 +47,6 @@ public class MessageController {
         return body;
     }
 
-
     @PostMapping("/messages")
     public  String input_message(
             @AuthenticationPrincipal User user,
@@ -65,7 +61,8 @@ public class MessageController {
 
         if((file != null) && (!file.getOriginalFilename().isEmpty()))
         {
-            File dir = new File(mainProperties.getUploadPath());
+            String path = mainProperties.getUploadPath();
+            File dir = new File(path);
             if(!dir.exists())
             {
                 dir.mkdir();

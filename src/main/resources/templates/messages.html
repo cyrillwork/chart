@@ -19,9 +19,9 @@
                     <div class="m-2">
                         <span th:utext="${mess.text}"></span>
 
-                        <dev th:if="${mess.hasFile()}">
+                        <div th:if="${mess.hasFile()}">
                             <i><a download="logo" th:href="@{'/messages/' +  ${mess.getFileNameCodeString()} }">файл</a></i>
-                        </dev>
+                        </div>
 
                     </div>
 
@@ -54,7 +54,8 @@
 
             <div class="form-group">
                 <div class="custom-file">
-                    <input type="file" name="file" th:placeholder="#{messages.choose.file}"/>
+                    <input type="file" name="file" id="file1" th:value="#{messages.choose.file}" lang="ru"/>
+                    <!-- <label class="custom-file-label" for="file1">Файл</label>-->
                 </div>
             </div>
 

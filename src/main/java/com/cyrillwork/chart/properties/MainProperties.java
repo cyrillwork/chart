@@ -15,8 +15,11 @@ public class MainProperties {
     @Value("${chart.server.port}")
     private Integer port;
 
-    @Value("${chart.upload.path}")
-    private String uploadPath;
+    @Value("${chart.upload.path.linux}")
+    private String uploadPathLinux;
+
+    @Value("${chart.upload.path.windows}")
+    private String uploadPathWindows;
 
     @Value("${chart.recaptcha}")
     private String recaptcha;
@@ -27,4 +30,21 @@ public class MainProperties {
     public boolean isLocalHost(){
         return host.equals("localhost");
     }
+
+    private String uploadPath = null;
+
+    public String getUploadPath(){
+        if(uploadPath == null) {
+            String property = System.getProperty("os.name");
+            switch (property) {
+                case "Windows":
+                    uploadPath = uploadPathWindows;
+                    break;
+                default:
+                    uploadPath = uploadPathLinux;
+            }
+        }
+        return uploadPath;
+    }
+
 }
