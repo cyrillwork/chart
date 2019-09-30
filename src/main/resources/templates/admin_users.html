@@ -74,6 +74,7 @@
                     <td th:text="${user.roles}"></td>
                     <td th:text="${user.getStateActivation() ? 'Да' : 'Нет'}"></td>
                     <td> <a th:href="@{'/user_edit/'+${user.id}}">Редактировать</a></td>
+                    <td> <a th:href="@{'/user_messages/'+${user.id}}">Сообщения</a></td>
                     <td> <a th:href="@{'/del_user/'+${user.id}}">Удалить</a></td>
                 </tr>
             </table>
@@ -104,7 +105,7 @@
 </div>
 <br/>
 <div>
-<a th:href="@{/}"> Вернуться на главную страницу>> </a>
+<a th:href="@{/}"> Вернуться на главную страницу </a>
 </div>
 <br/> <br/>
 <div th:insert="common::copy"></div>

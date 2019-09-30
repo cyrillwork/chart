@@ -45,6 +45,7 @@ chart:
       linux: /tmp/uploads/
       windows: D:\uploads\
 
+  recaptcha: 6Lf13roUAAAAAOhgqFhx1BASz7KlnCagl7TGdHdT
   recaptcha.url: https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s
 
 

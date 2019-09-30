@@ -38,24 +38,26 @@ public class RegistrationControllerTest {
     private RestTemplate restTemplate;
 
     private User user;
-    private String captchaResponse;
+    private String strCaptchaResponse;
     private BindingResult errors;
     private Model model;
+    private ChartCaptchaResponse captchaResponse;
+    private String correctPassword = "12345";
 
     @Before
     public void setup(){
         user = new User();
-        captchaResponse = "12345";
+        strCaptchaResponse = "12345";
         errors = mock(BindingResult.class);
         model = mock(Model.class);
 
-        ChartCaptchaResponse response = new ChartCaptchaResponse();
+        captchaResponse = new ChartCaptchaResponse();
 
         String url = String.format(mainProperties.getRecaptchaUrl(),
-                mainProperties.getRecaptcha(), captchaResponse);
-        response.setSuccess(true);
+                mainProperties.getRecaptcha(), strCaptchaResponse);
+        captchaResponse.setSuccess(true);
 
-        Mockito.doReturn(response).
+        Mockito.doReturn(captchaResponse).
                 when(restTemplate).
                 postForObject(url, Collections.emptyList(), ChartCaptchaResponse.class);
     }
@@ -66,7 +68,7 @@ public class RegistrationControllerTest {
         user.setPassword("123456");
 
         Assert.assertEquals("registration", registrationController.addUser("12345",
-                captchaResponse,
+                strCaptchaResponse,
                 user,
                 errors,
                 model));
@@ -80,21 +82,44 @@ public class RegistrationControllerTest {
     @Test
     public void addUserExistUser()
     {
-        user.setPassword("12345");
+        user.setPassword(correctPassword);
 
         Mockito.doReturn(true).
                 when(userService).
                 existOneMoreUser(user);
 
-        Assert.assertEquals("registration", registrationController.addUser("12345",
-                captchaResponse,
+        Assert.assertEquals("registration", registrationController.addUser(correctPassword,
+                strCaptchaResponse,
                 user,
                 errors,
                 model));
 
         Mockito.verify(model, Mockito.times(1)).addAttribute (
                 ArgumentMatchers.eq("user_exist")
-                , ArgumentMatchers.anyString()
+                , ArgumentMatchers.eq(true)
+        );
+
+    }
+
+    @Test
+    public void addTestCaptcha()
+    {
+        user.setPassword(correctPassword);
+        captchaResponse.setSuccess(false);
+
+        Mockito.doReturn(false).
+                when(userService).
+                existOneMoreUser(user);
+
+        Assert.assertEquals("registration", registrationController.addUser(correctPassword,
+                strCaptchaResponse,
+                user,
+                errors,
+                model));
+
+        Mockito.verify(model, Mockito.times(1)).addAttribute (
+                ArgumentMatchers.eq("captcha_error")
+                , ArgumentMatchers.eq(true)
         );
 
     }

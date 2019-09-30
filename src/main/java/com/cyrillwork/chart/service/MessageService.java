@@ -1,6 +1,7 @@
 package com.cyrillwork.chart.service;
 
 import com.cyrillwork.chart.models.Message;
+import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.repos.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,15 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
+    public Iterable<Message> findAllByUser(User user){
+        return messageRepository.findAllByUser(user);
+    }
+
     public void saveMessage(Message message) {
         messageRepository.save(message);
     }
+
+    public void deleteMessage(Message message) { messageRepository.delete(message);}
 
     public String FindFileByCode(String code)
     {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="common::header"></div>
+    <title>Сипсок сообщений</title>
+</head>
+
+<body>
+<div class="container">
+
+    <label> <b><span th:utext="#{user.messages.title}"></span></b> </label>
+    <div class="card-columns">
+        <ul th:each="mess :${messages}">
+            <div class="card my-3">
+            <li>
+                <div class="m-2">
+                    <div th:utext="${mess.text}"></div>
+                </div>
+                <div class="card-footer text-muted">
+                     <a th:href="@{'/del_message/'+${mess.id}}">Удалить</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <a th:href="@{/admin_users}"> Вернуться на страницу администрирования </a>
+    </div>
+
+    <br/> <br/>
+    <div th:insert="common::copy"></div>
+
+</div>
+
+</body>
+
+</html>

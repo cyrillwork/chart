@@ -1,7 +1,6 @@
 package com.cyrillwork.chart;
 
 
-import com.cyrillwork.chart.properties.MainProperties;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,15 +20,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestPropertySource("/application-test.yaml")
+@TestPropertySource("/application-test.properties")
 @Sql(value = {"/create-users-before.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = {"/create-users-after.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class LoginTest {
     @Autowired
     private MockMvc mockMvc;
-
-    @Autowired
-    private MainProperties mainProperties;
 
     @Test
     public void testShowLogin() throws Exception{
