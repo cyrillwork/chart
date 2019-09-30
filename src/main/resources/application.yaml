@@ -42,10 +42,9 @@ chart:
     debug: true
 
   upload:
-    path: /tmp/uploads/
-
-#windows
-#    path: D:\uploads\
+    path:
+      linux: /tmp/uploads/
+      windows: D:\uploads\
 
 
 server:
