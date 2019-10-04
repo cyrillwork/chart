@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Рекдактирование данных пользователя</title>
+    <title th:utext="#{edit.title}"></title>
     <div th:insert="common::header"></div>
 </head>
 <body>
 <div class="container">
-<div><b>Редактирование данных пользователя</b></div>
+
+    <b><span th:utext="#{edit.title}"></span></b>
+
 <div>
     <br/>
     <div class="container">
@@ -17,14 +19,25 @@
         <input type="hidden" th:field="*{id}">
         <input type="hidden" th:field="*{password}">
         <div>
-            <label> Пользователь:
-                <input type="text" th:field="*{username}">
+            <label> <span th:utext="#{login.user} + ':'"></span>
+                    <input type="text" th:field="*{username}">
             </label>
             <span class="validationError"
                   th:if="${#fields.hasErrors('username')}"
-                  th:errors="*{username}"> Ошибка ввода пользователя
+                  th:errors="*{username}" th:utext="#{common.error_user}">
             </span>
         </div>
+
+        <div>
+            <label> <span th:utext="#{login.password}"></span>
+                    <input type="password" th:field="*{password}"/>
+            </label>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}" th:utext="#{common.error_password}">
+            </span>
+        </div>
+
 
         <div>
             <label> Активный
