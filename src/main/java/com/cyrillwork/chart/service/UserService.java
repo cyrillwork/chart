@@ -75,13 +75,15 @@ public class UserService implements UserDetailsService {
         {
             return false;
         }
+
         db_user.setUsername(user.getUsername());
-
-        if(!isProfile)
-            db_user.setRoles(user.getRoles());
-
         db_user.setEmail(user.getEmail());
         db_user.setActive(user.isActive());
+        if(!isProfile) {
+            db_user.setRoles(user.getRoles());
+            db_user.setPassword(user.getPassword());
+            db_user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
 
         userRepository.save(db_user);
         return true;
