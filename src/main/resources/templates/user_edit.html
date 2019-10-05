@@ -17,7 +17,6 @@
     </div>
     <form th:action="@{/user_edit}" method="post" th:object="${user}">
         <input type="hidden" th:field="*{id}">
-        <input type="hidden" th:field="*{password}">
         <div>
             <label> <span th:utext="#{login.user} + ':'"></span>
                     <input type="text" th:field="*{username}">
@@ -37,7 +36,6 @@
                   th:errors="*{password}" th:utext="#{common.error_password}">
             </span>
         </div>
-
 
         <div>
             <label> Активный

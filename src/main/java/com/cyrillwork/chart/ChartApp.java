@@ -9,7 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @SpringBootApplication
 @ServletComponentScan
@@ -17,20 +20,24 @@ import org.springframework.context.annotation.Bean;
 @Slf4j
 public class ChartApp
 {
-//    @Bean
-//    public ServletListenerRegistrationBean<SessionListener> sessionListener() {
-//        ServletListenerRegistrationBean<SessionListener> listenerRegBean =
-//                new ServletListenerRegistrationBean<>();
-//
-//        listenerRegBean.setListener(new SessionListener());
-//        return listenerRegBean;
-//    }
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean validator(MessageSource messageSource) {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource);
+        return bean;
+    }
 
     @Bean
     public ServletListenerRegistrationBean<SessionListener> sessionListener() {
-
         log.info("!!!!!!!!!1 ServletListenerRegistrationBean");
-
         return new ServletListenerRegistrationBean<SessionListener>(new SessionListener());
     }
 

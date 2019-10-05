@@ -18,16 +18,17 @@ import java.util.Set;
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    @Size(min=3, max=64, message = "Имя пользователя должно быть от 3 до 64 символов")
+    @Size(min=3, max=64, message = "{validation.user}")
     private String username;
 
     @NotNull
-    @Size(min=3, max=64, message = "Пароль должен быть от 3 до 64 символов")
+    @Size(min=3, max=64, message = "{validation.password}")
     private String password;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -38,7 +39,7 @@ public class User implements UserDetails {
     private boolean active;
 
     @NotNull
-    @Size(min=3, max=64, message = "Элк.почта должна быть от 3 до 64 символов")
+    @Size(min=3, max=64, message = "{validation.email}")
     private String email;
 
     private String activationCode;

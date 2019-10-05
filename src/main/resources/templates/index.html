@@ -13,7 +13,7 @@
 
 <h1> <span th:utext="#{index.greeting}"></span></h1>
 
-<h1>  <div id="login_user" th:text="'Приветствую ' + ${login_user.username}">  </div> </h1>
+<h1>  <div id="login_user" th:text="${login_user.username}">  </div> </h1>
 
 <br/>
 <div> <a th:href="@{/messages}"> <span th:utext="#{index.begin}"></span> </a> </div>

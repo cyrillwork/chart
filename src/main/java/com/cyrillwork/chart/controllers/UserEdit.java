@@ -8,7 +8,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -45,12 +44,6 @@ public class UserEdit {
             {
                 str_error += "Пользователь " + user.getUsername() + " уже есть !!!";
             }
-
-//            String str_error = new String("Ошибки ввода:");
-//            for(FieldError iii: errors.getFieldErrors())
-//            {
-//                str_error += " " + iii.getDefaultMessage();
-//            }
 
             model.addAttribute("error_exist", str_error );
             model.addAttribute("roles", Role.values());
