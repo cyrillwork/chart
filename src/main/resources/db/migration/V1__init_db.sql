@@ -5,6 +5,7 @@ create table user_messages (
 	create_at timestamp, 
 	text varchar(255) not null,
 	file_name varchar(255),
+	file_id bigint,
 	user_id bigint, primary key (id));
 
 create table user_role (
@@ -21,15 +22,22 @@ create table usr (
 	username varchar(64) not null, primary key (id)
 );
 
+create table file_data (
+    id bigint not null,
+    file oid, primary key (id));
+
 -- create table spring_session_chart (
 --     id bigint not null,
 --     username varchar(64) not null, primary key (id)
 -- );
 
-
 alter table if exists user_messages 
 	add constraint massage_user_fk 
 	foreign key (user_id) references usr;
+
+alter table if exists user_messages
+    add constraint massage_file_data_fk
+        foreign key (file_id) references file_data;
 
 alter table if exists user_role 
 	add constraint user_role_user_fk 

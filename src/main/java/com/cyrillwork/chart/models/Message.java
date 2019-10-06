@@ -38,16 +38,16 @@ public class Message
 
     private String fileName;
 
+    @OneToOne(targetEntity = FileData.class)
+    private FileData file;
+
     public String getFileNameCodeString()
     {
         if(fileName == null)
         {
             return "";
         }
-        //String result = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('.') );
-        String result = fileName.substring(fileName.lastIndexOf(File.separator) + 1);
-
-        return result;
+        return fileName.substring(fileName.lastIndexOf(File.separator) + 1);
     }
 
     public String getFullFileNameString()

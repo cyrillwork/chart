@@ -5,11 +5,15 @@ spring:
       url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost/db_chart}
       username: ${JDBC_DATABASE_USERNAME:develop}
       password: ${JDBC_DATABASE_PASSWORD:123456}
+
   jpa:
-    properties.hibernate.jdbc.lob.non_contextual_creation: true
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        temp.use_jdbc_metadata_defaults: false
     hibernate.ddl-auto: validate
     generate-ddl: false
-    show-sql: false
+    show-sql: true
   session:
     store-type: jdbc
     jdbc.initialize-schema: always

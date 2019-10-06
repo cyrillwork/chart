@@ -30,7 +30,6 @@ public class UserMessagesController {
     public String deleteMessage(@PathVariable Message message,
                                    Model model) {
         log.info("!!!!!!!!!1 deleteMessage");
-
         User user = message.getUser();
         messageService.deleteMessage(message);
         model.addAttribute("messages", messageService.findAllByUser(user));
