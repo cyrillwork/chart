@@ -61,4 +61,5 @@ public class ChartStorageService implements StorageService{
     @Override
     public void deleteAll() {
     }
+
 }

@@ -33,16 +33,16 @@ public class MainProperties {
 
     private String uploadPath = null;
 
-    public String getUploadPath(){
-        if(uploadPath == null) {
+    private boolean isCheckOS = false;
+
+    public String getUploadPath() {
+        if(!isCheckOS) {
+            isCheckOS = true;
             String property = System.getProperty("os.name");
-            switch (property) {
-                case "Windows":
-                    uploadPath = uploadPathWindows;
-                    break;
-                default:
-                    uploadPath = uploadPathLinux;
-            }
+            if(property.indexOf("Windows") != -1)
+                uploadPath = uploadPathWindows;
+            else
+                uploadPath = uploadPathLinux;
         }
         return uploadPath;
     }
