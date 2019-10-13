@@ -9,6 +9,8 @@ import com.cyrillwork.chart.repos.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,8 +37,8 @@ public class MessageService {
     @Autowired
     private MainProperties mainProperties;
 
-    public Iterable<Message> findAllMessages(){
-        return messageRepository.findAll();
+    public Page<Message> findAllMessages(Pageable pageable){
+        return messageRepository.findAll(pageable);
     }
 
     public Iterable<Message> findAllByUser(User user){

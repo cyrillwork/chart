@@ -34,6 +34,8 @@
         </ul>
     </div>
 
+    <div th:insert="common::pager (${url}, ${all_messages})"></div>
+
     <br>
         <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">
  <!--
@@ -60,7 +62,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary"> Добавить </button>
+                <button type="submit" class="btn btn-primary"> <span th:utext="#{messages.send}"></span></button>
             </div>
 
         </form>
