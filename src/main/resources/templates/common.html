@@ -17,13 +17,36 @@
 </div>
 
 <div th:fragment="pager (url, pages)">
+    <div class="mt-3">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1"><span th:utext="#{messages.pages}"></span></a>
+            </li>
+            <li th:if="${pages.hasPrevious()}" class="page-item">
+                <a class="page-link" th:href="@{${'/messages'}(page=${pages.number-1},size=${pages.size})}"> <span th:utext="#{messages.previous}"> </span></a>
+            </li>
+            <li th:each="pageNo : ${#numbers.sequence(0, pages.getTotalPages() - 1)}" th:class="${pages.number eq pageNo}? 'page-item active' : 'page-item'">
+                <a th:if="${pages.number  eq pageNo}" class="page-link" href="#">
+                    <span th:text="${pageNo + 1}"></span>
+                </a>
+                <a th:if="${not (pages.number  eq pageNo)}" class="page-link" th:href="@{${'/messages'}(page=${pageNo},size=${pages.size})}">
+                    <span th:text="${pageNo + 1}"></span>
+                </a>
+            </li>
+            <li th:if="${pages.hasNext()}" class="page-item">
+                <a class="page-link" th:href="@{${'/messages'}(page=${pages.number+1},size=${pages.size})}"><span th:utext="#{messages.next}"> </span></a>
+            </li>
+        </ul>
+    </div>
+</div>
 
+
+<div th:fragment="pager_old (url, pages)">
     <div class="mt-3">
     <ul class="pagination">
         <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1"><span th:utext="#{messages.pages}"></span></a>
         </li>
-
         <li th:each="pageNo : ${#numbers.sequence(0, pages.getTotalPages() - 1)}" th:class="${pages.number eq pageNo}? 'page-item active' : 'page-item'">
             <a th:if="${pages.number  eq pageNo}" class="page-link" href="#">
                 <span th:text="${pageNo + 1}"></span>
@@ -32,16 +55,11 @@
                 <span th:text="${pageNo + 1}"></span>
             </a>
         </li>
-
-        <!--
         <li class="page-item">
-            <a class="page-link" href="#">Следующий</a>
+            <a class="page-link" href="#"><span th:utext="#{messages.next}"> </span></a>
         </li>
-        -->
-
     </ul>
     </div>
-
 </div>
 
 <div th:fragment="registrashion (name, user, registr)">
