@@ -13,6 +13,8 @@
 
 <div class="container">
 
+    <div th:insert="common::pager (${url}, ${all_messages})"></div>
+
     <div class="card-columns">
         <ul th:each="mess :${all_messages}">
             <div class="card my-3">
@@ -35,7 +37,6 @@
         </ul>
     </div>
 
-    <div th:insert="common::pager (${url}, ${all_messages})"></div>
 
     <br>
         <form th:action="@{/messages}" method="post" enctype="multipart/form-data" th:object="${message}">

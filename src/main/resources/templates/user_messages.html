@@ -5,13 +5,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <div th:insert="common::header"></div>
-    <title>Сипсок сообщений</title>
+    <title>Список сообщений</title>
 </head>
 
 <body>
 <div class="container">
 
-    <label> <b><span th:utext="#{user.messages.title}"></span></b> </label>
+<!--    <label> <b><span th:utext="#{user.messages.title}"></span></b> </label> -->
+
+    <div th:insert="common::pager_id(${url},${messages},${user_id})"></div>
+
     <div class="card-columns">
         <ul th:each="mess :${messages}">
             <div class="card my-3">

@@ -41,8 +41,8 @@ public class MessageService {
         return messageRepository.findAll(pageable);
     }
 
-    public Iterable<Message> findAllByUser(User user){
-        return messageRepository.findAllByUser(user);
+    public Page<Message> findAllByUser(User user, Pageable pageable){
+        return messageRepository.findAllByUser(user, pageable);
     }
 
     public void saveMessage(Message message, User user, MultipartFile file) throws IOException {

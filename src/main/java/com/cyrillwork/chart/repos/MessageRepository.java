@@ -12,7 +12,8 @@ import javax.transaction.Transactional;
 public interface MessageRepository extends CrudRepository<Message, Long> {
     Page<Message> findAll(Pageable pageable);
 
-    Iterable<Message> findAllByUser(User user);
+    @Transactional
+    Page<Message> findAllByUser(User user, Pageable pageable);
 
     @Transactional
     Iterable<Message> findAllByFile(FileData file);
