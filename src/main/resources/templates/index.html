@@ -5,7 +5,7 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <div th:insert="common::header"></div>
-        <title>Главная страница чата</title>
+        <title th:utext="#{index.title}"></title>
 </head>
 
 <body>
@@ -22,6 +22,8 @@
 <br/>
 
 <div th:if="${login_user.isAdmin()} == true">
+    <div> <a th:href="@{/messages/excel}"> <span th:utext="#{messages.excel}"></span> </a> </div>
+    <br/>
     <div> <a th:href="@{/admin_users}"> <span th:utext="#{index.admin}"></span> </a> </div>
 </div>
 

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="common::header"></div>
+    <title th:utext="#{excel.title}"></title>
+</head>
+
+<body>
+<div class="container">
+
+    <h1> <span th:utext="#{excel.message}"></span></h1>
+
+    <div> <a th:href="@{/}"> <b> <span th:utext="#{messages.back}"></span> </b> </a> </div>
+
+    <br/> <br/>
+    <div th:insert="common::copy"></div>
+
+</div>
+
+</body>
+</html>

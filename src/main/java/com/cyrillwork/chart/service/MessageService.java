@@ -6,6 +6,11 @@ import com.cyrillwork.chart.models.User;
 import com.cyrillwork.chart.properties.MainProperties;
 import com.cyrillwork.chart.repos.FileDataRepository;
 import com.cyrillwork.chart.repos.MessageRepository;
+import com.cyrillwork.chart.service.excel.FillManager;
+import com.cyrillwork.chart.service.excel.Layouter;
+import com.cyrillwork.chart.service.excel.Writer;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -15,8 +20,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,6 +31,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -107,22 +115,6 @@ public class MessageService {
             file = m.getFile();
         }
 
-//        Iterable<Message> mess =  messageRepository.findAllByFileByFileNative(id);
-//        if(mess.iterator().hasNext()) {
-//            m = mess.iterator().next();
-//            file = m.getFile();
-//        }
-
-
-//        Iterable<Message> all = messageRepository.findAll();
-//        for(Message iii: all){
-//            FileData fff = iii.getFile();
-//            if((fff != null) && (fff.getId() == id))
-//            {
-//                file = fff;
-//                break;
-//            }
-//        }
 
         return (file != null) ? file.getFile() : null;
     }
@@ -164,5 +156,35 @@ public class MessageService {
             e.printStackTrace();
         }
         return body;
+    }
+
+    @Transactional
+    public void makeExcelDocument(HttpServletResponse response) throws ClassNotFoundException
+    {
+        // 1. Create new workbook
+        HSSFWorkbook workbook = new HSSFWorkbook();
+
+        // 2. Create new worksheet
+        HSSFSheet worksheet = workbook.createSheet("POI Worksheet");
+
+        // 3. Define starting indices for rows and columns
+        int startRowIndex = 0;
+        int startColIndex = 0;
+
+        // 4. Build layout
+        // Build title, date, and column headers
+        Layouter.buildReport(worksheet, startRowIndex, startColIndex);
+
+        // 5. Fill report
+        FillManager.fillReport(worksheet, startRowIndex, startColIndex, messageRepository.findAll());
+
+        // 6. Set the response properties
+        String fileName = "Messages.xls";
+        response.setHeader("Content-Disposition", "inline; filename=" + fileName);
+        // Make sure to set the correct content type
+        response.setContentType("application/vnd.ms-excel");
+
+        //7. Write to the output stream
+        Writer.write(response, worksheet);
     }
 }
