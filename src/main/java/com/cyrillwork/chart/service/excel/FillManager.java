@@ -1,7 +1,6 @@
 package com.cyrillwork.chart.service.excel;
 
 import com.cyrillwork.chart.models.Message;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -10,7 +9,7 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 
 import java.util.List;
 
-@Slf4j
+//@Slf4j
 public class FillManager {
 
     /**
@@ -57,9 +56,13 @@ public class FillManager {
             // Money
             HSSFCell cellMoney = row.createCell(startIndex);
             String str = datasource.get(i-2).getText();
-            str = str.replaceAll("[^0-9]+", " ");
+            String strNumber = str.replaceAll("[^0-9]+", " ").trim();
 
-            int number = Integer.parseInt(str.trim());
+            int number = 0;
+            if(!strNumber.equals("")) {
+                number = Integer.parseInt(strNumber);
+            }
+
             cellMoney.setCellValue( number );
             cellMoney.setCellStyle(bodyCellStyle);
 
@@ -98,7 +101,7 @@ public class FillManager {
                     lastCell.getAddress().toString()
             );
 
-            log.info(formula);
+            //log.info(formula);
 
             cell2.setCellFormula(formula);
             cell2.setCellStyle(bodyCellStyle);
